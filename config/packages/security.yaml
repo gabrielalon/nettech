@@ -1,0 +1,48 @@
+security:
+    encoders:
+        App\Domain\User\Symfony\Bridge\PasswordEncoderUserStub:
+            algorithm: bcrypt
+        App\Domain\User\ReadModel\Entity\User:
+            algorithm: bcrypt
+    role_hierarchy:
+        ROLE_USER: ROLE_USER
+        ROLE_ADMIN: ROLE_USER
+    providers:
+        domain:
+            entity:
+                class: App\Domain\User\ReadModel\Entity\User
+        jwt_user_provider:
+            id: App\Application\Security\Jwt\JwtUserProvider
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        jwt:
+            pattern: ^/api/v1
+            stateless: true
+            simple_preauth:
+                authenticator: App\Application\Security\Jwt\JwtUserAuthenticator
+            provider: jwt_user_provider
+            access_denied_handler: App\Application\Security\AccessDeniedHandler
+        main:
+            anonymous: true
+            form_login:
+                provider: domain
+                login_path: /login
+                check_path: /login
+                default_target_path: /
+
+            logout:
+                path: /logout
+                target: /login
+
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                path: /
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/admin, roles: ROLE_USER }
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

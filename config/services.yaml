@@ -1,0 +1,43 @@
+imports:
+    - { resource: services/* }
+
+parameters:
+    jwt_ttl: '+1 hour'
+    jwt_algorithm: 'RS256'
+    jwt_private_key: '%kernel.project_dir%/config/jwt/rsa_256.key'
+    jwt_public_key: '%kernel.project_dir%/config/jwt/rsa_256.key.pub'
+    permissions.file.path: '%kernel.project_dir%/config/permissions.yaml'
+    locale: 'pl'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            $domainCommandBus: '@messenger.bus.domain.commands'
+            $domainQueryBus: '@messenger.bus.domain.queries'
+            $domainEventBus: '@messenger.bus.domain.events'
+            $appSubscriptionBus: '@messenger.bus.app.subscriptions'
+
+            $jwtTtl: '%jwt_ttl%'
+
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Migrations,Tests,Kernel.php}'
+
+
+    App\Infrastructure\Messenger\Middleware\QueryResultMiddleware:
+        arguments: ['@messenger.senders_locator']
+
+    # ES Framework
+    App\Infrastructure\EventSourcing\Event\Persist\EventStorageRepositoryInterface: '@App\Infrastructure\EventSourcing\Event\Persist\DoctrineEventStorageRepository'
+    App\Infrastructure\EventSourcing\Snapshot\Persist\SnapshotStorageRepositoryInterface: '@App\Infrastructure\EventSourcing\Snapshot\Persist\DoctrineSnapshotStorageRepository'
+    App\Infrastructure\EventSourcing\Event\Dispatcher\DispatcherInterface: '@App\Infrastructure\EventSourcing\Event\Dispatcher\EventDispatcher'
+
+    App\Infrastructure\IdentityGenerator\IdentityGeneratorInterface: '@App\Infrastructure\IdentityGenerator\Uuid4Generator'
+    App\Infrastructure\Permission\Loader\YamlPermissionLoader:
+        arguments: ['%permissions.file.path%']
+    App\Infrastructure\Permission\Loader\LoaderInterface: '@App\Infrastructure\Permission\Loader\YamlPermissionLoader'
+
+    App\Infrastructure\Messenger\Transport\Amqp\AmqpTransportFactory:
+        tags: [messenger.transport_factory]

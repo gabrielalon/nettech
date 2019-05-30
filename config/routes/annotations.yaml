@@ -1,0 +1,12 @@
+front_controllers:
+    resource: ../../src/Presentation/Http/Web/FrontController/
+    type: annotation
+
+panel_controllers:
+    resource: ../../src/Presentation/Http/Web/PanelController/
+    type: annotation
+
+api_controllers:
+    resource: ../../src/Presentation/Http/Rest/
+    type: annotation
+    prefix: /api

@@ -1,0 +1,9 @@
+doctrine_migrations:
+    dir_name: '%kernel.project_dir%/src/Migrations'
+    namespace: DoctrineMigrations
+    table_name: 'migration_versions'
+    column_length: 14
+    executed_at_column_name: 'executed_at'
+    name: 'Application Migrations'
+    organize_migrations: BY_YEAR_AND_MONTH
+    all_or_nothing: true

@@ -1,0 +1,77 @@
+framework:
+    messenger:
+        transports:
+            mutations:
+                dsn: '%env(MESSENGER_COMMANDS_TRANSPORT_DSN)%'
+                options:
+                    exchange:
+                        name: messages
+                        type: !php/const AMQP_EX_TYPE_TOPIC
+                        flags: !php/const AMQP_AUTODELETE
+                    queue:
+                        name: mutations
+                        routing_key: mutations
+                        flags: 24
+            subscriptions:
+                dsn: '%env(MESSENGER_EVENTS_TRANSPORT_DSN)%'
+                options:
+                    exchange:
+                        name: messages
+                        type: !php/const AMQP_EX_TYPE_TOPIC
+                        flags: !php/const AMQP_AUTODELETE
+                    queue:
+                        name: subscriptions
+                        routing_key: subscriptions
+                        flags: 16
+            queries:
+                dsn: '%env(MESSENGER_QUERIES_TRANSPORT_DSN)%'
+                options:
+                    exchange:
+                        name: messages
+                        type: !php/const AMQP_EX_TYPE_TOPIC
+                        flags: !php/const AMQP_AUTODELETE
+                    queue:
+                        name: queries
+                        routing_key: queries
+                        flags: 0
+            reply_to:
+                dsn: '%env(MESSENGER_REPLY_TO_TRANSPORT_DSN)%'
+                options:
+                    exchange:
+                        name: ""
+                    queue:
+                        name: "amq.rabbitmq.reply-to"
+                        routing_key: "amq.rabbitmq.reply-to"
+
+        routing:
+            App\Application\Message\PurchaseTransaction\Subscription\Created: subscriptions
+            App\Infrastructure\Messenger\Message\QueryResult: reply_to
+
+        default_bus: messenger.bus.commands
+        buses:
+            messenger.bus.app.mutations:
+                default_middleware: false
+                middleware:
+                    # - validation
+                    - handle_message
+                    - App\Infrastructure\Messenger\Middleware\QueryResultMiddleware
+            messenger.bus.app.subscriptions:
+                default_middleware: allow_no_handlers
+                middleware:
+                    - validation
+            messenger.bus.app.queries:
+                default_middleware: false
+                middleware:
+                    - validation
+                    - handle_message
+                    - App\Infrastructure\Messenger\Middleware\QueryResultMiddleware
+            messenger.bus.domain.commands:
+                middleware:
+                    - validation
+            messenger.bus.domain.queries:
+                middleware:
+                    - App\Infrastructure\Messenger\Middleware\DoctrineMiddleware
+                    - validation
+            messenger.bus.domain.events:
+                middleware:
+                    - validation
