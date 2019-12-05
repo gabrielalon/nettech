@@ -1,0 +1,47 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Domain\Model\User\Projection\UserProjector:
+        class: App\Infrastructure\Projection\User\DoctrineUserProjector
+        arguments: ['@doctrine.dbal.default_connection']
+        calls:
+            - method: 'setPasswordHasher'
+              arguments: ['@App\Infrastructure\PasswordHasher\PasswordHasherInterface']
+
+    App\Application\User\Query\UserQuery:
+        class: App\Infrastructure\Query\User\DoctrineUserQuery
+        arguments: ['@doctrine']
+
+    App\Application\User\Query\V1\FindAllUsersHandler:
+        class: App\Application\User\Query\V1\FindAllUsersHandler
+        arguments: ['@App\Application\User\Query\UserQuery']
+
+    App\Application\User\Query\V1\FindOneUserByLoginHandler:
+        class: App\Application\User\Query\V1\FindOneUserByLoginHandler
+        arguments: ['@App\Application\User\Query\UserQuery']
+
+    App\Infrastructure\Persist\User\UserRepository:
+        class: App\Infrastructure\Persist\User\UserRepository
+        arguments: ['@messaging.event_storage', '@messaging.snapshot_storage']
+
+    App\Application\User\Command\CreateUserHandler:
+        class: App\Application\User\Command\CreateUserHandler
+        arguments: ['@App\Infrastructure\Persist\User\UserRepository']
+
+    App\Application\User\Command\RemoveUserHandler:
+        class: App\Application\User\Command\RemoveUserHandler
+        arguments: ['@App\Infrastructure\Persist\User\UserRepository']
+
+    App\Application\User\Service\UserQueryManager:
+        class: App\Application\User\Service\UserQueryManager
+        arguments: ['@messaging.query_bus']
+
+    App\Application\User\Service\UserCommandManager:
+        class: App\Application\User\Service\UserCommandManager
+        arguments: ['@messaging.command_bus']
+
+    App\Application\User\Service\UserService:
+        class: App\Application\User\Service\UserService
+        arguments: ['@App\Application\User\Service\UserQueryManager', '@App\Application\User\Service\UserCommandManager']

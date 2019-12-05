@@ -1,0 +1,132 @@
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: false
+
+    'messaging.command_handler_provider':
+        class: N3ttech\Messaging\Command\CommandHandling\CommandHandlerProvider\RegistryProvider
+        calls:
+            - method: 'register'
+              arguments: ['@App\Application\User\Command\CreateUserHandler']
+            - method: 'register'
+              arguments: ['@App\Application\User\Command\RemoveUserHandler']
+            - method: 'register'
+              arguments: ['@App\Application\Gallery\Command\CreateGalleryHandler']
+
+    'messaging.command_router_factory':
+        class: N3ttech\Messaging\Command\CommandRouting\CommandRouterFactory
+        arguments: ['@messaging.command_handler_provider']
+
+    'messaging.command_router':
+        class: N3ttech\Messaging\Command\CommandRouting\CommandRouter
+        factory: ['@messaging.command_router_factory', 'createDefault']
+
+    'messaging.command_transport_factory':
+        class: N3ttech\Messaging\Command\CommandTransporting\CommandTransporterFactory
+        arguments: ['@messaging.command_router']
+
+    'messaging.command_transporter':
+        class: N3ttech\Messaging\Command\CommandTransporting\CommandTransporter
+        factory: ['@messaging.command_transport_factory', 'createDefault']
+
+    'messaging.command_bus':
+        class: N3ttech\Messaging\Command\CommandBus
+        arguments: ['@messaging.command_transporter']
+
+    'messaging.query_handler_provider':
+        class: N3ttech\Messaging\Query\QueryHandling\QueryHandlerProvider\RegistryProvider
+        calls:
+            - method: 'register'
+              arguments: ['@App\Application\User\Query\V1\FindAllUsersHandler']
+            - method: 'register'
+              arguments: ['@App\Application\User\Query\V1\FindOneUserByLoginHandler']
+            - method: 'register'
+              arguments: ['@App\Application\Gallery\Query\V1\FindOneGalleryByUuidHandler']
+            - method: 'register'
+              arguments: ['@App\Application\Gallery\Query\V1\FindAllGalleriesPaginatedHandler']
+            - method: 'register'
+              arguments: ['@App\Application\Gallery\Query\V1\FindAllGalleryAssetsPaginatedHandler']
+
+    'messaging.query_router_factory':
+        class: N3ttech\Messaging\Query\QueryRouting\QueryRouterFactory
+        arguments: ['@messaging.query_handler_provider']
+
+    'messaging.query_router':
+        class: N3ttech\Messaging\Query\QueryRouting\QueryRouter
+        factory: ['@messaging.query_router_factory', 'createDefault']
+
+    'messaging.query_transport_factory':
+        class: N3ttech\Messaging\Query\QueryTransporting\QueryTransporterFactory
+        arguments: ['@messaging.query_router']
+
+    'messaging.query_transporter':
+        class: N3ttech\Messaging\Query\QueryTransporting\QueryTransporter
+        factory: ['@messaging.query_transport_factory', 'createDefault']
+
+    'messaging.query_bus':
+        class: N3ttech\Messaging\Query\QueryBus
+        arguments: ['@messaging.query_transporter']
+
+    'messaging.event_projection_provider':
+        class: N3ttech\Messaging\Event\EventSourcing\EventProjectionProvider\RegistryProvider
+        calls:
+            - method: 'register'
+              arguments: ['@App\Domain\Model\User\Projection\UserProjector']
+            - method: 'register'
+              arguments: ['@App\Domain\Model\Gallery\Projection\GalleryProjector']
+
+    'messaging.event_router_factory':
+        class: N3ttech\Messaging\Event\EventRouting\EventRouterFactory
+
+    'messaging.event_router':
+        class: N3ttech\Messaging\Event\EventRouting\EventRouter
+        factory: ['@messaging.event_router_factory', 'fromDirectory']
+        arguments: ['%kernel.project_dir%/config/events/']
+
+    'messaging.event_transport_factory':
+        class: N3ttech\Messaging\Event\EventTransporting\EventTransporterFactory
+        arguments: ['@messaging.event_router', '@messaging.event_projection_provider']
+
+    'messaging.event_transporter':
+        class: N3ttech\Messaging\Event\EventTransporting\EventTransporter
+        factory: ['@messaging.event_transport_factory', 'createDefault']
+
+    'messaging.event_bus':
+        class: N3ttech\Messaging\Event\EventBus
+        arguments: ['@messaging.event_transporter']
+
+    'messaging.snapshot_serializer':
+        class: N3ttech\Messaging\Snapshot\SnapshotStore\CallbackSerializer
+        arguments: [null, null]
+
+    'messaging.snapshot_storage_repository':
+        class: App\Infrastructure\Persist\Snapshot\DoctrineSnapshotStorageRepository
+        arguments: ['@messaging.snapshot_serializer', '@doctrine']
+
+    'messaging.snapshot_storage':
+        class: N3ttech\Messaging\Snapshot\SnapshotStore\SnapshotStorage
+        arguments: ['@messaging.snapshot_storage_repository']
+
+    'messaging.event_serializer':
+        class: N3ttech\Messaging\Event\EventStore\JsonSerializer
+
+    'messaging.event_storage_repository':
+        class: App\Infrastructure\Persist\Event\DoctrineEventStorageRepository
+        arguments: ['@messaging.event_serializer', '@doctrine']
+
+    'messaging.event_storage_factory':
+        class: N3ttech\Messaging\Event\EventStore\EventStorageFactory
+        arguments: ['@messaging.event_storage_repository']
+
+    'messaging.event_storage':
+        class: N3ttech\Messaging\Event\EventStore\EventStorage
+        factory: ['@messaging.event_storage_factory', 'create']
+        arguments: ['@messaging.event_bus']
+
+    N3ttech\Messaging\Command\CommandHandling\CommandBus: '@messaging.command_bus'
+    N3ttech\Messaging\Event\EventSourcing\EventBus: '@messaging.event_bus'
+    N3ttech\Messaging\Event\EventStore\Serializer: '@messaging.event_serializer'
+    N3ttech\Messaging\Event\EventStore\EventStorage: '@messaging.event_storage'
+    N3ttech\Messaging\Query\QueryHandling\QueryBus: '@messaging.query_bus'
+    N3ttech\Messaging\Snapshot\SnapshotStore\Serializer: '@messaging.snapshot_serializer'
+    N3ttech\Messaging\Snapshot\SnapshotStore\SnapshotStorage: '@messaging.snapshot_storage'

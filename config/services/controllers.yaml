@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Presentation\Http\Web\:
+        resource: '%kernel.project_dir%/src/Presentation/Http/Web'
+        tags: ['controller.service_arguments']

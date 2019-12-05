@@ -30,17 +30,6 @@ RUN apt-get update && apt-get install -y \
         pcntl \
         xml
 
-# Install amqp
-RUN apt-get update \
-    && apt-get install -y \
-        librabbitmq-dev \
-        libssh-dev \
-    && docker-php-ext-install \
-        bcmath \
-        sockets \
-    && pecl install amqp \
-    && docker-php-ext-enable amqp
-
 # Install PHP Redis extension
 RUN pecl install -o -f redis \
   &&  rm -rf /tmp/pear \

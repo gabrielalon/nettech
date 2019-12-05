@@ -1,9 +1,5 @@
-front_controllers:
-    resource: ../../src/Presentation/Http/Web/FrontController/
-    type: annotation
-
-panel_controllers:
-    resource: ../../src/Presentation/Http/Web/PanelController/
+web_controllers:
+    resource: ../../src/Presentation/Http/Web/
     type: annotation
 
 api_controllers:

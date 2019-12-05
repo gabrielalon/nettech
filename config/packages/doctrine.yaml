@@ -11,26 +11,26 @@ doctrine:
         url: '%env(resolve:DATABASE_URL)%'
     orm:
         auto_generate_proxy_classes: true
-        naming_strategy: doctrine.orm.naming_strategy.underscore
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
             EventSourcingEvent:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Infrastructure/EventSourcing/Event/Entity'
-                prefix: 'App\Infrastructure\EventSourcing\Event\Entity'
+                dir: '%kernel.project_dir%/src/Infrastructure/Persist/Event'
+                prefix: 'App\Infrastructure\Persist\Event'
             EventSourcingSnapshot:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Infrastructure/EventSourcing/Snapshot/Entity'
-                prefix: 'App\Infrastructure\EventSourcing\Snapshot\Entity'
-            DomainRole:
+                dir: '%kernel.project_dir%/src/Infrastructure/Persist/Snapshot'
+                prefix: 'App\Infrastructure\Persist\Snapshot'
+            UserEntity:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Domain/Role/ReadModel/Entity'
-                prefix: 'App\Domain\Role\ReadModel\Entity'
-            DomainUser:
+                dir: '%kernel.project_dir%/src/Application/User/Query/ReadModel/Entity'
+                prefix: 'App\Application\User\Query\ReadModel\Entity'
+            GalleryEntity:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Domain/User/ReadModel/Entity'
-                prefix: 'App\Domain\User\ReadModel\Entity'
+                dir: '%kernel.project_dir%/src/Application/Gallery/Query/ReadModel/Entity'
+                prefix: 'App\Application\Gallery\Query\ReadModel\Entity'

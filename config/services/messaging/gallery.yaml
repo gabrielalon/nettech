@@ -1,0 +1,44 @@
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: false
+
+    App\Domain\Model\Gallery\Projection\GalleryProjector:
+        class: App\Infrastructure\Projection\Gallery\DoctrineGalleryProjector
+        arguments: ['@doctrine.dbal.default_connection']
+
+    App\Application\Gallery\Query\AssetQuery:
+        class: App\Infrastructure\Query\Gallery\DoctrineAssetQuery
+        arguments: ['@doctrine.dbal.default_connection']
+
+    App\Application\Gallery\Query\GalleryQuery:
+        class: App\Infrastructure\Query\Gallery\DoctrineGalleryQuery
+        arguments: ['@doctrine']
+
+    App\Application\Gallery\Query\V1\FindAllGalleryAssetsPaginatedHandler:
+        class: App\Application\Gallery\Query\V1\FindAllGalleryAssetsPaginatedHandler
+        arguments: ['@App\Application\Gallery\Query\AssetQuery']
+
+    App\Application\Gallery\Query\V1\FindOneGalleryByUuidHandler:
+        class: App\Application\Gallery\Query\V1\FindOneGalleryByUuidHandler
+        arguments: ['@App\Application\Gallery\Query\GalleryQuery']
+
+    App\Application\Gallery\Query\V1\FindAllGalleriesPaginatedHandler:
+        class: App\Application\Gallery\Query\V1\FindAllGalleriesPaginatedHandler
+        arguments: ['@App\Application\Gallery\Query\GalleryQuery']
+
+    App\Infrastructure\Persist\Gallery\GalleryRepository:
+        class: App\Infrastructure\Persist\Gallery\GalleryRepository
+        arguments: ['@messaging.event_storage', '@messaging.snapshot_storage']
+
+    App\Application\Gallery\Command\CreateGalleryHandler:
+        class: App\Application\Gallery\Command\CreateGalleryHandler
+        arguments: ['@App\Infrastructure\Persist\Gallery\GalleryRepository']
+
+    App\Application\Gallery\Service\GalleryQueryManager:
+        class: App\Application\Gallery\Service\GalleryQueryManager
+        arguments: ['@messaging.query_bus']
+
+    App\Application\Gallery\Service\GalleryCommandManager:
+        class: App\Application\Gallery\Service\GalleryCommandManager
+        arguments: ['@messaging.command_bus']
