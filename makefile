@@ -22,7 +22,7 @@ build: ## build environment and initialize composer and project dependencies
 
 .PHONY: composer-install
 composer-install: ## Install project dependencies
-		docker exec -it nettech-php bash -lc 'COMPOSER_MEMORY_LIMIT=-1 composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader --no-dev'
+		docker exec -it nettech-php bash -lc 'COMPOSER_MEMORY_LIMIT=-1 composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader'
 
 .PHONY: composer-update
 composer-update: ## Update project dependencies

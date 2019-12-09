@@ -2,7 +2,9 @@
 
 namespace App\Infrastructure\PasswordHasher;
 
-interface PasswordHasherInterface
+use Symfony\Component\Security\Core\Encoder\EncoderAwareInterface;
+
+interface PasswordHasherInterface extends EncoderAwareInterface
 {
     /**
      * @param string $password
