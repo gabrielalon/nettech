@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
         zlib1g-dev \
         libzip-dev \
         git \
+        vim \
         zip \
         cron \
         unzip \

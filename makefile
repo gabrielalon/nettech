@@ -20,6 +20,10 @@ build: ## build environment and initialize composer and project dependencies
 		docker-compose up -d --remove-orphans
 		docker exec -it nettech-php bash -lc 'COMPOSER_MEMORY_LIMIT=-1 composer install'
 
+.PHONY: composer-install
+composer-install: ## Install project dependencies
+		docker exec -it nettech-php bash -lc 'COMPOSER_MEMORY_LIMIT=-1 composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader --no-dev'
+
 .PHONY: composer-update
 composer-update: ## Update project dependencies
 		docker exec -it nettech-php bash -lc 'COMPOSER_MEMORY_LIMIT=-1 composer update'
