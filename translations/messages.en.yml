@@ -1,0 +1,45 @@
+common:
+    title: Marek Rode
+    description: BoostTypers - recruitment task,
+    nav_user_list: Users
+    nav_gallery_source_list: Galleries
+    nav_readme: Readme
+    link_back: back
+    lp: Lp.
+    options: Options
+
+home:
+    title: BoostTypers
+    lead: Rrecruitment task.
+
+user:
+    title: Users
+    lead: Create user with command line
+    creation_date: Created at
+    login: Login
+    collection_empty: No users found.
+    link_remove: remove
+
+gallery:
+    source: Source
+    source_title: Gallery sources
+    source_lead: List of gallery sources is hardcoded.
+    source_content: Please run following command in command line to fetch their content
+    link_list: show
+
+    gallery_title: Gallery list
+    asset_title: Asset title
+    asset: Asset
+    creation_date: Created at
+    name: Name
+    collection_empty: No galleries found.
+    link_asset: assets
+
+    order_by_created_at: creation date
+    order_by_asset_counter: assets counter
+
+searcher:
+    order_by: Order by
+    sort_order: Order direction
+    choose: Choose...
+    submit: Search

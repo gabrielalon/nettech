@@ -44,12 +44,12 @@ class EventStoreEntity
     private $version;
 
     /**
-     * @ORM\Column(name="payload", type="string")
+     * @ORM\Column(name="payload", type="text")
      */
     private $payload;
 
     /**
-     * @ORM\Column(name="metadata", type="string")
+     * @ORM\Column(name="metadata", type="text")
      */
     private $metadata;
 

@@ -3,6 +3,7 @@
 namespace App\Application\User\Service;
 
 use App\Application\User\Query\ReadModel\Entity\User;
+use App\Application\User\Query\ReadModel\Entity\UserCollection;
 use App\Infrastructure\IdentityGenerator\IdentityGeneratorInterface;
 use N3ttech\Messaging\Query\Exception;
 
@@ -52,6 +53,14 @@ class UserService
     }
 
     /**
+     * @param string $uuid
+     */
+    public function removeUser(string $uuid): void
+    {
+        $this->command->remove($uuid);
+    }
+
+    /**
      * @param string $login
      * @return User
      * @throws Exception\ResourceNotFoundException
@@ -59,5 +68,13 @@ class UserService
     public function findUser(string $login): User
     {
         return $this->query->findOneByLogin($login);
+    }
+
+    /**
+     * @return UserCollection
+     */
+    public function findAllUsers(): UserCollection
+    {
+        return $this->query->findAll();
     }
 }

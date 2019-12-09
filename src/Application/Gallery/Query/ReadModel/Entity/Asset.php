@@ -26,7 +26,7 @@ class Asset implements Query\Viewable
     private $id;
 
     /**
-     * @var \Ramsey\Uuid\UuidInterface
+     * @var string
      *
      * @ORM\Column(name="gallery_uuid", type="string", columnDefinition="CHAR(36) NOT NULL")
      */
@@ -42,7 +42,7 @@ class Asset implements Query\Viewable
     /**
      * @var string
      *
-     * @ORM\Column(name="filename", type="string", length=128, nullable=false)
+     * @ORM\Column(name="filename", type="string", length=255, nullable=false)
      */
     private $filename;
 
@@ -73,18 +73,18 @@ class Asset implements Query\Viewable
     }
 
     /**
-     * @return \Ramsey\Uuid\UuidInterface
+     * @return string
      */
-    public function getGalleryUuid(): \Ramsey\Uuid\UuidInterface
+    public function getGalleryUuid(): string
     {
         return $this->galleryUuid;
     }
 
     /**
-     * @param \Ramsey\Uuid\UuidInterface $galleryUuid
+     * @param string $galleryUuid
      * @return Asset
      */
-    public function setGalleryUuid(\Ramsey\Uuid\UuidInterface $galleryUuid): Asset
+    public function setGalleryUuid(string $galleryUuid): Asset
     {
         $this->galleryUuid = $galleryUuid;
         return $this;

@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: false
+
+    App\Infrastructure\Twig\GalleryExtension:
+        class: App\Infrastructure\Twig\GalleryExtension
+        arguments: ['@App\Application\Gallery\Fetch\FetcherRegistry']
+        tags: ['twig.extension']

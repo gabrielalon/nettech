@@ -111,7 +111,7 @@ class User implements UserInterface, Query\Viewable
      */
     public function getUuid(): string
     {
-        return $this->uuid->toString();
+        return (string) $this->uuid;
     }
 
     /**
@@ -144,5 +144,13 @@ class User implements UserInterface, Query\Viewable
     public function identifier()
     {
         return $this->getUuid();
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function creationDate(): \DateTime
+    {
+        return date_timestamp_set(date_create(), $this->createdAt->getTimestamp());
     }
 }

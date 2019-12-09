@@ -1,0 +1,29 @@
+{% macro pagination(total, current, url, nearbyPagesLimit = 4) %}
+    {% if total > 1 %}
+        <ul class="pagination justify-content-center">
+            {% for i in 1..total %}
+                {% if 0 == (current - nearbyPagesLimit) - loop.index %}
+                    <li class="page-item"><a class="page-link" href="{{ (url ~ 1)|e }}">1</a></li>
+                    {% if 1 != loop.index %}
+                        <li class="page-item">...<span class="sr-only"></span></li>
+                    {% endif %}
+                {% elseif 0 == (current + nearbyPagesLimit) - loop.index  and (current + nearbyPagesLimit) < total %}
+                    <li class="page-item"><span>…</span></li>
+                {% elseif 0 < (current - nearbyPagesLimit) - loop.index %}
+                {% elseif 0 > (current + nearbyPagesLimit) - loop.index %}
+                {% else %}
+                    <li {{ current == loop.index ? 'class="page-item active"' }}>
+                        {% if current == loop.index  %}
+                            <a class="page-link" href="#">{{ loop.index }} <span class="sr-only">(current)</span></a>
+                        {% else %}
+                            <a class="page-link" href="{{ url ~ loop.index }}">{{ loop.index }}</a>
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+            {% if current != total  and (current + nearbyPagesLimit) < total %}
+                <li class="page-item"><a class="page-link" href="{{ (url ~ total)|e }}">{{ total }}</a></li>
+            {% endif %}
+        </ul>
+    {% endif %}
+{% endmacro %}

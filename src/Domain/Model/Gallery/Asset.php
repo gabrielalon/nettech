@@ -2,7 +2,9 @@
 
 namespace App\Domain\Model\Gallery;
 
-interface Asset
+use N3ttech\Valuing\Stringify;
+
+interface Asset extends Stringify
 {
     /**
      * @return Enum\AssetType

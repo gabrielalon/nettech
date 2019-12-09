@@ -40,7 +40,7 @@ final class DoctrineSnapshotStorageRepository extends ServiceEntityRepository im
         $aggregateType = Aggregate\AggregateType::fromAggregateRoot($aggregateRoot);
         $aggregateId = $this->getAggregateTranslator()->extractAggregateId($aggregateRoot);
 
-        $entity = $this->findOneBy(['aggregateId' => $aggregateId]);
+        $entity = $this->findOneBy(['aggregateId' => $aggregateId, 'aggregateType' => $aggregateType->getAggregateType()]);
 
         if (null === $entity) {
             $entity = new SnapshotStoreEntity();
@@ -62,23 +62,23 @@ final class DoctrineSnapshotStorageRepository extends ServiceEntityRepository im
     public function get(Aggregate\AggregateType $aggregateType, AggregateId $aggregateId): Snapshot\Snapshot
     {
         /** @var SnapshotStoreEntity $entity */
-        $entity = $this->findOneBy(['aggregateId' => $aggregateId->toString(), 'aggregateType' => $aggregateType]);
+        $entity = $this->findOneBy(['aggregateId' => $aggregateId->toString(), 'aggregateType' => $aggregateType->getAggregateType()]);
 
-        if (null === $aggregateType) {
+        if (null === $entity) {
             $aggregateRoot = Aggregate\EventBridge\AggregateRootDecorator::newInstance();
             $aggregateRoot->setAggregateId($aggregateId);
 
             return new Snapshot\Snapshot(
                 $aggregateRoot,
                 0,
-                new \DateTimeImmutable('@' . time())
+                new \DateTime('now')
             );
         }
 
         return new Snapshot\Snapshot(
             $this->serializer->unserialize($entity->getAggregateObject()),
             $entity->getLastVersion(),
-            $entity->getCreatedAt()
+            $entity->creationDate()
         );
     }
 }

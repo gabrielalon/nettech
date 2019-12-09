@@ -30,7 +30,7 @@ final class Assets extends \ArrayIterator
     }
 
     /**
-     * @param \N3ttech\Valuing\Intl\Continent\Collection $other
+     * @param Assets $other
      *
      * @return bool
      */
@@ -40,7 +40,7 @@ final class Assets extends \ArrayIterator
             return false;
         }
 
-        return $other->getArrayCopy() === $this->getArrayCopy();
+        return $other->getArrayCopy() == $this->getArrayCopy();
     }
 
     /**

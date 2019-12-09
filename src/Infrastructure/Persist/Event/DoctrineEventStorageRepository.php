@@ -42,8 +42,13 @@ final class DoctrineEventStorageRepository extends ServiceEntityRepository imple
         $eventStoreEntity->setVersion($event->version());
         $eventStoreEntity->setOccurredOn(\DateTimeImmutable::createFromMutable($event->recordedOn()));
 
-        $this->_em->persist($eventStoreEntity);
-        $this->_em->flush();
+        try {
+            $this->_em->persist($eventStoreEntity);
+            $this->_em->flush();
+        } catch (\Exception $e) {
+            var_dump($e->__toString());
+            die;
+        }
     }
 
     /**

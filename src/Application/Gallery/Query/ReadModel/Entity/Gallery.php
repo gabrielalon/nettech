@@ -19,7 +19,7 @@ use N3ttech\Messaging\Query\Query;
 class Gallery implements Query\Viewable
 {
     /**
-     * @var \Ramsey\Uuid\UuidInterface
+     * @var string
      *
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true, columnDefinition="CHAR(36) NOT NULL")
@@ -43,29 +43,30 @@ class Gallery implements Query\Viewable
     private $name;
 
     /**
+     * @var string
+     * @ORM\Column(type="datetimetz", name="created_at")
+     */
+    private $created_at;
+
+    /**
+     * @var integer
+     */
+    private $asset_counter;
+
+    /**
      * @inheritDoc
      */
     public function identifier()
     {
-        return $this->uuid->toString();
+        return $this->getUuid();
     }
 
     /**
-     * @return \Ramsey\Uuid\UuidInterface
+     * @return string
      */
-    public function getUuid(): \Ramsey\Uuid\UuidInterface
+    public function getUuid(): string
     {
-        return $this->uuid;
-    }
-
-    /**
-     * @param \Ramsey\Uuid\UuidInterface $uuid
-     * @return Gallery
-     */
-    public function setUuid(\Ramsey\Uuid\UuidInterface $uuid): Gallery
-    {
-        $this->uuid = $uuid;
-        return $this;
+        return (string) $this->uuid;
     }
 
     /**
@@ -77,16 +78,6 @@ class Gallery implements Query\Viewable
     }
 
     /**
-     * @param string $source
-     * @return Gallery
-     */
-    public function setSource(string $source): Gallery
-    {
-        $this->source = $source;
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getName(): string
@@ -95,12 +86,66 @@ class Gallery implements Query\Viewable
     }
 
     /**
-     * @param string $name
-     * @return Gallery
+     * @return \DateTime
      */
-    public function setName(string $name): Gallery
+    public function creationDate(): \DateTime
+    {
+        return date_timestamp_set(date_create(), strtotime($this->getCreatedAt()));
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreatedAt(): string
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * @return int
+     */
+    public function assetCounter(): int
+    {
+        return $this->asset_counter;
+    }
+
+    /**
+     * @param string $uuid
+     */
+    public function setUuid(string $uuid): void
+    {
+        $this->uuid = $uuid;
+    }
+
+    /**
+     * @param string $source
+     */
+    public function setSource(string $source): void
+    {
+        $this->source = $source;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
     {
         $this->name = $name;
-        return $this;
+    }
+
+    /**
+     * @param string $created_at
+     */
+    public function setCreatedAt(string $created_at): void
+    {
+        $this->created_at = $created_at;
+    }
+
+    /**
+     * @param int $asset_counter
+     */
+    public function setAssetCounter(int $asset_counter): void
+    {
+        $this->asset_counter = $asset_counter;
     }
 }

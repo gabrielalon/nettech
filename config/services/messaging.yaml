@@ -43,9 +43,11 @@ services:
             - method: 'register'
               arguments: ['@App\Application\Gallery\Query\V1\FindOneGalleryByUuidHandler']
             - method: 'register'
-              arguments: ['@App\Application\Gallery\Query\V1\FindAllGalleriesPaginatedHandler']
+              arguments: ['@App\Application\Gallery\Query\V1\FindOneGalleryByNameHandler']
             - method: 'register'
-              arguments: ['@App\Application\Gallery\Query\V1\FindAllGalleryAssetsPaginatedHandler']
+              arguments: ['@App\Application\Gallery\Query\V1\ListAllGalleryBySourceHandler']
+            - method: 'register'
+              arguments: ['@App\Application\Gallery\Query\V1\ListAllAssetByGalleryHandler']
 
     'messaging.query_router_factory':
         class: N3ttech\Messaging\Query\QueryRouting\QueryRouterFactory

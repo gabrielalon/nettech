@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
         libzip-dev \
         git \
         zip \
+        cron \
         unzip \
     && docker-php-ext-configure intl \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \

@@ -17,14 +17,15 @@ erase: ## stop and delete containers, clean volumes.
 .PHONY: build
 build: ## build environment and initialize composer and project dependencies
 		docker-compose build
-		docker-compose run --rm php bash -lc 'COMPOSER_MEMORY_LIMIT=-1 composer install'
+		docker-compose up -d --remove-orphans
+		docker exec -it nettech-php bash -lc 'COMPOSER_MEMORY_LIMIT=-1 composer install'
 
 .PHONY: composer-update
 composer-update: ## Update project dependencies
-		docker-compose run --rm php bash -lc 'COMPOSER_MEMORY_LIMIT=-1 composer update'
+		docker exec -it nettech-php bash -lc 'COMPOSER_MEMORY_LIMIT=-1 composer update'
 
-.PHONY: phpunit
-phpunit: db ## execute project unit tests
+.PHONY: tests
+tests: ## execute project unit tests
 		docker-compose exec php bash -lc "./bin/phpunit $(conf)"
 
 .PHONY: style

@@ -49,4 +49,23 @@ class AssetCollection extends \ArrayIterator implements Query\ViewableCollection
     {
         return $this->getArrayCopy();
     }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        $galleries = [];
+
+        /** @var Asset $asset */
+        foreach ($this->getArrayCopy() as $asset) {
+            $galleries[] = [
+                'uuid' => $asset->identifier(),
+                'type' => $asset->getType(),
+                'filename' => $asset->getFilename()
+            ];
+        }
+
+        return $galleries;
+    }
 }

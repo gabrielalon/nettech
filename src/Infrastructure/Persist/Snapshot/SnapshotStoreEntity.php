@@ -29,32 +29,42 @@ class SnapshotStoreEntity
     private $id;
 
     /**
+     * @var string|int
+     *
      * @ORM\Column(name="aggregate_id", type="guid")
      */
     private $aggregateId;
 
     /**
+     * @var string
+     *
      * @ORM\Column(name="aggregate_type", type="string")
      */
     private $aggregateType;
 
     /**
+     * @var string
+     *
      * @ORM\Column(name="aggregate_object", type="text")
      */
     private $aggregateObject;
 
     /**
+     * @var integer
+     *
      * @ORM\Column(name="last_version", type="integer")
      */
     private $lastVersion;
 
     /**
+     * @var \DateTimeImmutable
+     *
      * @ORM\Column(name="created_at", type="datetime_immutable")
      */
     private $createdAt;
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -62,7 +72,7 @@ class SnapshotStoreEntity
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      * @return SnapshotStoreEntity
      */
     public function setId($id)
@@ -72,7 +82,7 @@ class SnapshotStoreEntity
     }
 
     /**
-     * @return mixed
+     * @return string|int
      */
     public function getAggregateId()
     {
@@ -80,7 +90,7 @@ class SnapshotStoreEntity
     }
 
     /**
-     * @param mixed $aggregateId
+     * @param string|int $aggregateId
      * @return SnapshotStoreEntity
      */
     public function setAggregateId($aggregateId)
@@ -90,7 +100,7 @@ class SnapshotStoreEntity
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getAggregateType()
     {
@@ -98,7 +108,7 @@ class SnapshotStoreEntity
     }
 
     /**
-     * @param mixed $aggregateType
+     * @param string $aggregateType
      * @return SnapshotStoreEntity
      */
     public function setAggregateType($aggregateType)
@@ -108,7 +118,7 @@ class SnapshotStoreEntity
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getAggregateObject()
     {
@@ -116,7 +126,7 @@ class SnapshotStoreEntity
     }
 
     /**
-     * @param mixed $aggregateObject
+     * @param string $aggregateObject
      * @return SnapshotStoreEntity
      */
     public function setAggregateObject($aggregateObject)
@@ -126,7 +136,7 @@ class SnapshotStoreEntity
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getLastVersion()
     {
@@ -134,7 +144,7 @@ class SnapshotStoreEntity
     }
 
     /**
-     * @param mixed $lastVersion
+     * @param int $lastVersion
      * @return SnapshotStoreEntity
      */
     public function setLastVersion($lastVersion)
@@ -144,15 +154,15 @@ class SnapshotStoreEntity
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
-    public function getCreatedAt()
+    public function creationDate(): \DateTime
     {
-        return $this->createdAt;
+        return date_timestamp_set(date_create(), $this->createdAt->getTimestamp());
     }
 
     /**
-     * @param mixed $createdAt
+     * @param \DateTimeImmutable $createdAt
      * @return SnapshotStoreEntity
      */
     public function setCreatedAt($createdAt)

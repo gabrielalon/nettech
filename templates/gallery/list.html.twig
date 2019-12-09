@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% import "pagination.html.twig" as pagination %}
+
+{% block body %}
+    <div class="row container-home">
+        <div class="col-lg-12 text-center">
+            <h3>{{ 'gallery.gallery_title'|trans }}</h3>
+            <p class="lead"><em>{{ searcher.getSource() }}</em></p>
+        </div>
+        <div class="col-lg-12 text-center">
+            {% if searcher.getCollection().count() > 0 %}
+                <form class="form-inline float-sm-right" action="{{ url('gallery-list', {'source': searcher.getSource()}) }}" method="get">
+                    <label class="my-1 mr-2" for="orderBy">{{ 'searcher.order_by'|trans }}</label>
+                    <select class="custom-select my-1 mr-sm-2" id="orderBy" name="order">
+                        <option selected>{{ 'searcher.choose'|trans }}</option>
+                        {% for orderBy in searcher.orderFields() %}
+                            {% set option = 'gallery.order_by_' ~ orderBy %}
+                            <option value="{{ orderBy }}" {% if searcher.orderField() == orderBy %}selected="selected"{% endif %}>{{ option|trans }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label class="my-1 mr-2" for="sortOrder">{{ 'searcher.sort_order'|trans }}</label>
+                    <select class="custom-select my-1 mr-sm-2" id="sortOrder" name="sort">
+                        <option selected>{{ 'searcher.choose'|trans }}</option>
+                        {% for sortOrder in searcher.orderDirections() %}
+                            <option value="{{ sortOrder }}" {% if searcher.orderSort() == sortOrder %}selected="selected"{% endif %}>{{ sortOrder }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <button type="submit" class="btn btn-primary my-1">{{ 'searcher.submit'|trans }}</button>
+                </form>
+                
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">{{ 'common.lp'|trans }}</th>
+                        <th scope="col">{{ 'gallery.creation_date'|trans }}</th>
+                        <th scope="col">{{ 'gallery.name'|trans }}</th>
+                        <th scope="col">{{ 'common.options'|trans }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for gallery in searcher.getCollection() %}
+                        <tr>
+                            <th scope="row">{{ searcher.currentLp() }}</th>
+                            <td nowrap="nowrap">{{ gallery.creationDate()|date('Y-m-d H:i:s') }}</td>
+                            <td>{{ gallery.getName() }}</td>
+                            <td>
+                                <a href="{{ url('gallery-assets', {'uuid': gallery.identifier()}) }}" class="badge badge-primary">
+                                    {{ 'gallery.link_asset'|trans }} ({{ gallery.assetCounter() }})
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <nav>
+                    {% set prefix = '?order=' ~ searcher.orderField() ~ '&sort=' ~ searcher.orderSort() ~ '&page=' %}
+                    {{ pagination.pagination(searcher.getTotalPages(), searcher.currentPage(), url('gallery-list', {'source': searcher.getSource()}) ~ prefix) }}
+                </nav>
+            {% else %}
+                <p class="lead">{{ 'gallery.collection_empty'|trans }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,7 @@
+timezone: Europe/Warsaw
+
+crons:
+    update_doc:
+      # every day at 3h45 AM
+        spec: 45 3 * * *
+        cmd: croncape bin/console app:fetch-gallery watch-the-deer

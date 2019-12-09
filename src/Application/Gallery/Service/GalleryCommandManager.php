@@ -13,8 +13,8 @@ class GalleryCommandManager extends CommandManager
      * @param string $name
      * @param array $assets
      */
-    public function create(string $uuid, string $source, string $name, array $assets): void
+    public function create(string $uuid, string $name, string $source, array $assets): void
     {
-        $this->command(new Command\CreateGallery($uuid, $source, $name, $assets));
+        $this->command(new Command\CreateGallery($uuid, $name, $source, $assets));
     }
 }

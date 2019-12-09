@@ -5,7 +5,7 @@ namespace App\Application\Gallery\Query\V1;
 use App\Application\Gallery\Query\ReadModel;
 use N3ttech\Messaging\Query\Exception;
 
-abstract class GalleryQuery extends \N3ttech\Messaging\Query\Query\Query
+abstract class GalleryQuery extends AbstractQuery
 {
     /** @var ReadModel\Entity\GalleryCollection */
     private $collection;

@@ -9,22 +9,26 @@ services:
 
     App\Application\Gallery\Query\AssetQuery:
         class: App\Infrastructure\Query\Gallery\DoctrineAssetQuery
-        arguments: ['@doctrine.dbal.default_connection']
+        arguments: ['@doctrine']
 
     App\Application\Gallery\Query\GalleryQuery:
         class: App\Infrastructure\Query\Gallery\DoctrineGalleryQuery
         arguments: ['@doctrine']
 
-    App\Application\Gallery\Query\V1\FindAllGalleryAssetsPaginatedHandler:
-        class: App\Application\Gallery\Query\V1\FindAllGalleryAssetsPaginatedHandler
+    App\Application\Gallery\Query\V1\ListAllAssetByGalleryHandler:
+        class: App\Application\Gallery\Query\V1\ListAllAssetByGalleryHandler
         arguments: ['@App\Application\Gallery\Query\AssetQuery']
+
+    App\Application\Gallery\Query\V1\FindOneGalleryByNameHandler:
+        class: App\Application\Gallery\Query\V1\FindOneGalleryByNameHandler
+        arguments: ['@App\Application\Gallery\Query\GalleryQuery']
 
     App\Application\Gallery\Query\V1\FindOneGalleryByUuidHandler:
         class: App\Application\Gallery\Query\V1\FindOneGalleryByUuidHandler
         arguments: ['@App\Application\Gallery\Query\GalleryQuery']
 
-    App\Application\Gallery\Query\V1\FindAllGalleriesPaginatedHandler:
-        class: App\Application\Gallery\Query\V1\FindAllGalleriesPaginatedHandler
+    App\Application\Gallery\Query\V1\ListAllGalleryBySourceHandler:
+        class: App\Application\Gallery\Query\V1\ListAllGalleryBySourceHandler
         arguments: ['@App\Application\Gallery\Query\GalleryQuery']
 
     App\Infrastructure\Persist\Gallery\GalleryRepository:
@@ -42,3 +46,11 @@ services:
     App\Application\Gallery\Service\GalleryCommandManager:
         class: App\Application\Gallery\Service\GalleryCommandManager
         arguments: ['@messaging.command_bus']
+
+    App\Application\Gallery\Seek\AssetSearcher:
+        class: App\Application\Gallery\Seek\AssetSearcher
+        arguments: ['@messaging.query_bus']
+
+    App\Application\Gallery\Seek\GallerySearcher:
+        class: App\Application\Gallery\Seek\GallerySearcher
+        arguments: ['@messaging.query_bus']

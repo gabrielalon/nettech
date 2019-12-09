@@ -3,6 +3,6 @@
 use App\Application\User\Event;
 
 return [
-    Event\ExistingUserRemoved::class => [\App\Domain\Model\User\Projection\UserProjector::class],
-    Event\NewUserCreated::class => [\App\Domain\Model\User\Projection\UserProjector::class],
+    Event\ExistingUserRemoved::class => [\App\Infrastructure\Projection\User\DoctrineUserProjector::class],
+    Event\NewUserCreated::class => [\App\Infrastructure\Projection\User\DoctrineUserProjector::class],
 ];

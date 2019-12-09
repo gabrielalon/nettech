@@ -15,3 +15,12 @@ services:
 
     App\Infrastructure\PasswordHasher\PasswordHasherInterface: '@App\Infrastructure\PasswordHasher\Sha1Hasher'
     App\Infrastructure\IdentityGenerator\IdentityGeneratorInterface: '@App\Infrastructure\IdentityGenerator\Uuid4Generator'
+
+    App\Application\Gallery\Fetch\WatchTheDeerFetcher:
+        class: App\Application\Gallery\Fetch\WatchTheDeerFetcher
+
+    App\Application\Gallery\Fetch\FetcherRegistry:
+        class: App\Application\Gallery\Fetch\FetcherRegistry
+        calls:
+            - method: 'register'
+              arguments: ['@App\Application\Gallery\Fetch\WatchTheDeerFetcher']

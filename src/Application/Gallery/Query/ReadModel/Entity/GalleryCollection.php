@@ -49,4 +49,25 @@ class GalleryCollection extends \ArrayIterator implements Query\ViewableCollecti
     {
         return $this->getArrayCopy();
     }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        $galleries = [];
+
+        /** @var Gallery $gallery */
+        foreach ($this->getArrayCopy() as $gallery) {
+            $galleries[] = [
+                'uuid' => $gallery->identifier(),
+                'created_at' => $gallery->getCreatedAt(),
+                'source' => $gallery->getSource(),
+                'name' => $gallery->getName(),
+                'asset_counter' => $gallery->assetCounter()
+            ];
+        }
+
+        return $galleries;
+    }
 }

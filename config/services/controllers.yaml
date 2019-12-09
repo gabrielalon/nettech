@@ -3,6 +3,10 @@ services:
         autowire: true
         autoconfigure: true
 
+    App\Presentation\Http\Rest\:
+        resource: '%kernel.project_dir%/src/Presentation/Http/Rest'
+        tags: ['controller.service_arguments']
+
     App\Presentation\Http\Web\:
         resource: '%kernel.project_dir%/src/Presentation/Http/Web'
         tags: ['controller.service_arguments']

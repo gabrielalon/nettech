@@ -4,12 +4,14 @@ namespace App\Application\Gallery\Service;
 
 use App\Application\Gallery\Query;
 use N3ttech\Messaging\Manager\QueryManager;
+use N3ttech\Messaging\Query\Exception;
 
 class GalleryQueryManager extends QueryManager
 {
     /**
      * @param string $uuid
      * @return Query\ReadModel\Entity\Gallery
+     * @throws Exception\ResourceNotFoundException
      */
     public function findOneGalleryByUuid(string $uuid): Query\ReadModel\Entity\Gallery
     {
@@ -21,31 +23,16 @@ class GalleryQueryManager extends QueryManager
     }
 
     /**
-     * @param int $page
-     * @param int $limit
-     * @return Query\ReadModel\Pagination
+     * @param string $name
+     * @return Query\ReadModel\Entity\Gallery
+     * @throws Exception\ResourceNotFoundException
      */
-    public function paginatedGalleries(int $page = 1, int $limit = 5): Query\ReadModel\Pagination
+    public function findOneGalleryByName(string $name): Query\ReadModel\Entity\Gallery
     {
-        $query = new Query\V1\FindAllGalleriesPaginated($page, $limit);
+        $query = new Query\V1\FindOneGalleryByName($name);
 
         $this->ask($query);
 
-        return new Query\ReadModel\Pagination($page, $query->getTotal(), $query->getCollection());
-    }
-
-    /**
-     * @param string $uuid
-     * @param int $page
-     * @param int $limit
-     * @return Query\ReadModel\Pagination
-     */
-    public function paginatedAssets(string $uuid, int $page = 1, int $limit = 5): Query\ReadModel\Pagination
-    {
-        $query = new Query\V1\FindAllGalleryAssetsPaginated($uuid, $page, $limit);
-
-        $this->ask($query);
-
-        return new Query\ReadModel\Pagination($page, $query->getTotal(), $query->getCollection());
+        return $query->getGallery();
     }
 }

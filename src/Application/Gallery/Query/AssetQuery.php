@@ -5,7 +5,7 @@ namespace App\Application\Gallery\Query;
 interface AssetQuery
 {
     /**
-     * @param V1\FindAllGalleryAssetsPaginated $query
+     * @param V1\ListAllAssetByGallery $query
      */
-    public function findAllPaginated(V1\FindAllGalleryAssetsPaginated $query): void;
+    public function listAllAssetByGallery(V1\ListAllAssetByGallery $query): void;
 }

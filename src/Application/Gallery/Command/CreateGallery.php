@@ -22,19 +22,20 @@ class CreateGallery extends GalleryCommand
      */
     public function __construct(
         string $uuid,
-        array $name,
+        string $name,
         string $source,
         array $assets
     ) {
         $this->setUuid($uuid);
         $this->name = $name;
+        $this->source = $source;
         $this->assets = $assets;
     }
 
     /**
-     * @return string[]
+     * @return string
      */
-    public function getName(): array
+    public function getName(): string
     {
         return $this->name;
     }

@@ -26,6 +26,9 @@ class CreateUserCommand extends Command
         parent::__construct();
     }
 
+    /**
+     * @inheritDoc
+     */
     protected function configure()
     {
         $this
@@ -36,6 +39,9 @@ class CreateUserCommand extends Command
         ;
     }
 
+    /**
+     * @inheritDoc
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln([
