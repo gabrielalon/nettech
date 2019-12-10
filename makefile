@@ -34,7 +34,7 @@ tests: ## execute project unit tests
 
 .PHONY: style
 style: ## executes php analizers
-		docker-compose run --rm php bash -lc './vendor/bin/phpstan analyse -l 1 -c phpstan.neon src tests'
+		docker-compose run --rm php bash -lc './vendor/bin/phpstan analyse -l 1 -c phpstan.neon src'
 
 .PHONY: cs
 cs: ## executes php cs fixer
