@@ -85,7 +85,7 @@ class GalleryTest extends AggregateChangedTestCase
             'creation_date' => time(),
             'name' => $this->name->toString(),
             'source' => $this->source->toString(),
-            'assets' => $this->assets->toArray()
+            'assets' => $this->assets->toArray(),
         ]);
     }
 }

@@ -19,6 +19,7 @@ class User extends AggregateRoot
 
     /**
      * @param VO\Identity\Uuid $uuid
+     *
      * @return User
      */
     public function setUuid(VO\Identity\Uuid $uuid): User
@@ -30,38 +31,45 @@ class User extends AggregateRoot
 
     /**
      * @param VO\Date\Time $creationDate
+     *
      * @return User
      */
     public function setCreationDate(VO\Date\Time $creationDate): User
     {
         $this->creationDate = $creationDate;
+
         return $this;
     }
 
     /**
      * @param VO\Char\Text $login
+     *
      * @return User
      */
     public function setLogin(VO\Char\Text $login): User
     {
         $this->login = $login;
+
         return $this;
     }
 
     /**
      * @param VO\Char\Text $password
+     *
      * @return User
      */
     public function setPassword(VO\Char\Text $password): User
     {
         $this->password = $password;
+
         return $this;
     }
 
     /**
      * @param VO\Identity\Uuid $uuid
-     * @param VO\Char\Text $login
-     * @param VO\Char\Text $password
+     * @param VO\Char\Text     $login
+     * @param VO\Char\Text     $password
+     *
      * @return User
      */
     public static function createNewUser(
@@ -69,12 +77,12 @@ class User extends AggregateRoot
         VO\Char\Text $login,
         VO\Char\Text $password
     ): User {
-        $category = new static();
+        $category = new self();
 
         $category->recordThat(Event\NewUserCreated::occur($uuid->toString(), [
             'creation_date' => time(),
             'login' => $login->toString(),
-            'password' => $password->toString()
+            'password' => $password->toString(),
         ]));
 
         return $category;

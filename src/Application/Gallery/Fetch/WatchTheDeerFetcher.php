@@ -7,7 +7,7 @@ use Symfony\Component\DomCrawler\Crawler;
 class WatchTheDeerFetcher extends AbstractFetcher
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function name(): string
     {
@@ -15,11 +15,11 @@ class WatchTheDeerFetcher extends AbstractFetcher
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function url(string $address = ''): string
     {
-        return 'http://watchthedeer.com' . DIRECTORY_SEPARATOR . ltrim($address, DIRECTORY_SEPARATOR);
+        return 'http://watchthedeer.com'.DIRECTORY_SEPARATOR.ltrim($address, DIRECTORY_SEPARATOR);
     }
 
     /**
@@ -29,11 +29,11 @@ class WatchTheDeerFetcher extends AbstractFetcher
      */
     private function asset(string &$asset, string $key, string $link): void
     {
-        $asset = $link . mb_substr($asset, 3);
+        $asset = $link.mb_substr($asset, 3);
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function galleries(): array
     {
@@ -46,10 +46,10 @@ class WatchTheDeerFetcher extends AbstractFetcher
                 ->each(function (Crawler $node, $i) {
                     $links = $node->extract(['href']);
                     $link = str_replace(['.aspx', '..', ' '], ['', '', '%20'], current($links));
+
                     return [$node->text(), $link];
                 });
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             return [];
         }
 

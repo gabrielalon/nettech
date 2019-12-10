@@ -11,7 +11,7 @@ abstract class FinderSearcher extends QueryManager
     const LIMIT = 5;
     const FIRST_PAGE = 1;
 
-    /** @var integer */
+    /** @var int */
     protected $page;
 
     /** @var ParameterBag */
@@ -23,10 +23,10 @@ abstract class FinderSearcher extends QueryManager
     /** @var string */
     protected $orderSort;
 
-    /** @var integer */
+    /** @var int */
     protected $totalPages;
 
-    /** @var integer */
+    /** @var int */
     protected $currentLp;
 
     /** @var \ArrayIterator */
@@ -170,7 +170,7 @@ abstract class FinderSearcher extends QueryManager
 
     private function moveLp(): void
     {
-        $this->currentLp++;
+        ++$this->currentLp;
     }
 
     /**

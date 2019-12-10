@@ -5,7 +5,7 @@ namespace App\Infrastructure\IdentityGenerator;
 class Uuid4Generator implements IdentityGeneratorInterface
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function generate(): string
     {

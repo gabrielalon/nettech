@@ -10,7 +10,9 @@ class UserQueryManager extends QueryManager
 {
     /**
      * @param string $login
+     *
      * @return Query\ReadModel\Entity\User
+     *
      * @throws Exception\ResourceNotFoundException
      */
     public function findOneByLogin(string $login): Query\ReadModel\Entity\User

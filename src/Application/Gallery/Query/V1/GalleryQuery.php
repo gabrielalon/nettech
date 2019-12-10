@@ -53,5 +53,3 @@ abstract class GalleryQuery extends AbstractQuery
         }
     }
 }
-
-

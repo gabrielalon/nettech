@@ -11,7 +11,7 @@ services:
 
     App\:
         resource: '../src/*'
-        exclude: '../src/{Migrations,Tests,Kernel.php}'
+        exclude: '../src/{Tests,Kernel.php}'
 
     App\Infrastructure\PasswordHasher\PasswordHasherInterface: '@App\Infrastructure\PasswordHasher\Sha1Hasher'
     App\Infrastructure\IdentityGenerator\IdentityGeneratorInterface: '@App\Infrastructure\IdentityGenerator\Uuid4Generator'

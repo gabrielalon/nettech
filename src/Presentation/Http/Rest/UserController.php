@@ -20,7 +20,7 @@ class UserController extends AbstractController
     public function status(): JsonResponse
     {
         $data = ['success' => true, 'username' => $this->getUser()->getUsername()];
-        
+
         return new JsonResponse($data, Response::HTTP_OK);
     }
 }

@@ -4,7 +4,6 @@ namespace App\Tests\Infrastructure\Projection\Gallery;
 
 use App\Application\Gallery\Event;
 use App\Application\Gallery\Query\ReadModel;
-use App\Domain\Model\Gallery\Asset;
 use App\Domain\Model\Gallery\Projection\GalleryProjector;
 
 class InMemoryGalleryProjector implements GalleryProjector
@@ -25,7 +24,7 @@ class InMemoryGalleryProjector implements GalleryProjector
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function onNewGalleryCreated(Event\NewGalleryCreated $event): void
     {

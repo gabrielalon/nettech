@@ -9,6 +9,7 @@ class DoctrineAssetQuery extends DoctrineQuery implements Query\AssetQuery
 {
     /**
      * DoctrineGalleryQuery constructor.
+     *
      * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
@@ -17,7 +18,7 @@ class DoctrineAssetQuery extends DoctrineQuery implements Query\AssetQuery
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function listAllAssetByGallery(Query\V1\ListAllAssetByGallery $query): void
     {

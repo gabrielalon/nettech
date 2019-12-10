@@ -10,7 +10,9 @@ class GalleryQueryManager extends QueryManager
 {
     /**
      * @param string $uuid
+     *
      * @return Query\ReadModel\Entity\Gallery
+     *
      * @throws Exception\ResourceNotFoundException
      */
     public function findOneGalleryByUuid(string $uuid): Query\ReadModel\Entity\Gallery
@@ -24,7 +26,9 @@ class GalleryQueryManager extends QueryManager
 
     /**
      * @param string $name
+     *
      * @return Query\ReadModel\Entity\Gallery
+     *
      * @throws Exception\ResourceNotFoundException
      */
     public function findOneGalleryByName(string $name): Query\ReadModel\Entity\Gallery

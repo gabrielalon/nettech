@@ -22,7 +22,7 @@ class InMemoryGalleryQuery implements Query\GalleryQuery
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function findOneByUuid(Query\V1\FindOneGalleryByUuid $query): void
     {
@@ -31,7 +31,7 @@ class InMemoryGalleryQuery implements Query\GalleryQuery
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function findOneByName(Query\V1\FindOneGalleryByName $query): void
     {
@@ -40,7 +40,7 @@ class InMemoryGalleryQuery implements Query\GalleryQuery
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function listAllBySource(Query\V1\ListAllGalleryBySource $query): void
     {

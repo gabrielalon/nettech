@@ -10,6 +10,7 @@ class NewGalleryCreated extends GalleryEvent
 {
     /**
      * @return VO\Date\Time
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function galleryCreationDate(): VO\Date\Time
@@ -19,6 +20,7 @@ class NewGalleryCreated extends GalleryEvent
 
     /**
      * @return VO\Char\Text
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function galleryName(): VO\Char\Text
@@ -28,6 +30,7 @@ class NewGalleryCreated extends GalleryEvent
 
     /**
      * @return VO\Char\Text
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function gallerySource(): VO\Char\Text
@@ -37,6 +40,8 @@ class NewGalleryCreated extends GalleryEvent
 
     /**
      * @return Gallery\Assets
+     *
+     * @throws \Assert\AssertionFailedException
      */
     public function galleryAssets(): Gallery\Assets
     {
@@ -45,6 +50,7 @@ class NewGalleryCreated extends GalleryEvent
 
     /**
      * @param Gallery $gallery
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function populate(AggregateRoot $gallery): void

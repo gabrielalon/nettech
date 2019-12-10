@@ -24,7 +24,7 @@ class GallerySearcher extends FinderSearcher
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected function defaultOrderField(): EnumOrderField
     {
@@ -40,7 +40,7 @@ class GallerySearcher extends FinderSearcher
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected function defaultOrderSort(): Enum\OrderSort
     {

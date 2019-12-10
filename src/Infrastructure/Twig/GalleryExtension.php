@@ -15,6 +15,7 @@ class GalleryExtension extends AbstractExtension
 
     /**
      * GalleryExtension constructor.
+     *
      * @param FetcherRegistry $fetcherRegistry
      */
     public function __construct(FetcherRegistry $fetcherRegistry)
@@ -31,8 +32,10 @@ class GalleryExtension extends AbstractExtension
 
     /**
      * @param Gallery $gallery
-     * @param Asset $asset
+     * @param Asset   $asset
+     *
      * @return string
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function assetUrl(Gallery $gallery, Asset $asset): string

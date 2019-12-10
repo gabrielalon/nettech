@@ -9,6 +9,7 @@ class FindOneGalleryByName extends GalleryQuery
 
     /**
      * FindOneGalleryByName constructor.
+     *
      * @param string $name
      */
     public function __construct(string $name)

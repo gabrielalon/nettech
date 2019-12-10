@@ -9,6 +9,7 @@ class FindOneUserByLogin extends UserQuery
 
     /**
      * FindOneUserByLogin constructor.
+     *
      * @param string $login
      */
     public function __construct(string $login)

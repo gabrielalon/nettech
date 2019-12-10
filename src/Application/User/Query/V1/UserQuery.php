@@ -53,4 +53,3 @@ abstract class UserQuery extends \N3ttech\Messaging\Query\Query\Query
         }
     }
 }
-

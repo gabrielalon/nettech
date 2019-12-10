@@ -6,16 +6,16 @@ abstract class AbstractFetcher implements Fetcher
 {
     /**
      * @param string $url
+     *
      * @return string
      */
     protected function retrieveContent(string $url): string
     {
-        try
-        {
+        try {
             $fileName = $url;
 
-            $fp = @fopen($fileName, "rb");
-            if ( !$fp ) {
+            $fp = @fopen($fileName, 'rb');
+            if (!$fp) {
                 throw new \Exception('File open failed.');
             }
 
@@ -23,7 +23,7 @@ abstract class AbstractFetcher implements Fetcher
             fclose($fp);
 
             return $str;
-        } catch ( \Exception $e ) {
+        } catch (\Exception $e) {
             return '';
         }
     }

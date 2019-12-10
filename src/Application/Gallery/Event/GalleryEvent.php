@@ -9,6 +9,7 @@ abstract class GalleryEvent extends AggregateChanged
 {
     /**
      * @return VO\Identity\Uuid
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function galleryUuid(): VO\Identity\Uuid

@@ -2,15 +2,17 @@
 
 namespace App\Domain\Model\Gallery\Gallery;
 
-use App\Domain\Model\Gallery\Enum;
 use App\Domain\Model\Gallery\Asset;
+use App\Domain\Model\Gallery\Enum;
 use N3ttech\Valuing as VO;
 
 final class Image extends VO\VO implements Asset
 {
     /**
      * @param string $image
+     *
      * @return Asset
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function fromImage(string $image): Asset
@@ -19,7 +21,7 @@ final class Image extends VO\VO implements Asset
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getType(): Enum\AssetType
     {
@@ -27,7 +29,7 @@ final class Image extends VO\VO implements Asset
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected function guard($value): void
     {

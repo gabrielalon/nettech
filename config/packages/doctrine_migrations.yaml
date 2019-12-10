@@ -1,5 +1,5 @@
 doctrine_migrations:
-    dir_name: '%kernel.project_dir%/src/Migrations'
+    dir_name: '%kernel.project_dir%/src/Infrastructure/Share/Migrations'
     namespace: DoctrineMigrations
     table_name: 'migration_versions'
     column_length: 14

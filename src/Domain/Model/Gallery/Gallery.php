@@ -22,6 +22,7 @@ class Gallery extends AggregateRoot
 
     /**
      * @param VO\Identity\Uuid $uuid
+     *
      * @return Gallery
      */
     public function setUuid(VO\Identity\Uuid $uuid): Gallery
@@ -33,49 +34,58 @@ class Gallery extends AggregateRoot
 
     /**
      * @param VO\Date\Time $creationDate
+     *
      * @return Gallery
      */
     public function setCreationDate(VO\Date\Time $creationDate): Gallery
     {
         $this->creationDate = $creationDate;
+
         return $this;
     }
 
     /**
      * @param VO\Char\Text $name
+     *
      * @return Gallery
      */
     public function setName(VO\Char\Text $name): Gallery
     {
         $this->name = $name;
+
         return $this;
     }
 
     /**
      * @param VO\Char\Text $source
+     *
      * @return Gallery
      */
     public function setSource(VO\Char\Text $source): Gallery
     {
         $this->source = $source;
+
         return $this;
     }
 
     /**
      * @param Gallery\Assets $assets
+     *
      * @return Gallery
      */
     public function setAssets(Gallery\Assets $assets): Gallery
     {
         $this->assets = $assets;
+
         return $this;
     }
 
     /**
      * @param VO\Identity\Uuid $uuid
-     * @param VO\Char\Text $name
-     * @param VO\Char\Text $source
-     * @param Gallery\Assets $assets
+     * @param VO\Char\Text     $name
+     * @param VO\Char\Text     $source
+     * @param Gallery\Assets   $assets
+     *
      * @return Gallery
      */
     public static function createNewGallery(
@@ -90,7 +100,7 @@ class Gallery extends AggregateRoot
             'creation_date' => time(),
             'name' => $name->toString(),
             'source' => $source->toString(),
-            'assets' => $assets->toArray()
+            'assets' => $assets->toArray(),
         ]));
 
         return $gallery;

@@ -17,6 +17,7 @@ class CreateUserCommand extends Command
 
     /**
      * CreateUserCommand constructor.
+     *
      * @param UserService $userService
      */
     public function __construct(UserService $userService)
@@ -27,9 +28,9 @@ class CreateUserCommand extends Command
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Creates a new user.')
@@ -40,9 +41,9 @@ class CreateUserCommand extends Command
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln([
             'User Creator',
@@ -58,18 +59,18 @@ class CreateUserCommand extends Command
 
             $output->writeln([
                 'Successfully created user.',
-                'User login: ' . $user->getLogin(),
-                ''
+                'User login: '.$user->getLogin(),
+                '',
             ]);
         } catch (\Exception $e) {
             $output->writeln([
                 'User not created.',
                 $e->getMessage(),
                 $e->__toString(),
-                ''
+                '',
             ]);
         }
 
-        return 1;
+        return 0;
     }
 }

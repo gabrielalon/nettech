@@ -10,7 +10,7 @@ use App\Infrastructure\Doctrine\DatabaseConnected;
 class DoctrineGalleryProjector extends DatabaseConnected implements GalleryProjector
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function onNewGalleryCreated(Event\NewGalleryCreated $event): void
     {
@@ -21,7 +21,9 @@ class DoctrineGalleryProjector extends DatabaseConnected implements GalleryProje
 
     /**
      * @param Event\NewGalleryCreated $event
+     *
      * @return bool
+     *
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\DBAL\DBALException
      */
@@ -40,12 +42,13 @@ class DoctrineGalleryProjector extends DatabaseConnected implements GalleryProje
             'uuid' => $event->galleryUuid()->toString(),
             'source' => $event->gallerySource()->toString(),
             'name' => $event->galleryName()->toString(),
-            'created_at' => \DateTimeImmutable::createFromMutable($creationDate)->format('Y-m-d H:i:s')
+            'created_at' => \DateTimeImmutable::createFromMutable($creationDate)->format('Y-m-d H:i:s'),
         ]);
     }
 
     /**
      * @param Event\NewGalleryCreated $event
+     *
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\DBAL\DBALException
      */
@@ -62,7 +65,7 @@ class DoctrineGalleryProjector extends DatabaseConnected implements GalleryProje
             $statement->execute([
                 'gallery_uuid' => $event->galleryUuid()->toString(),
                 'type' => $asset->getType()->getValue(),
-                'filename' => $asset->toString()
+                'filename' => $asset->toString(),
             ]);
         }
     }

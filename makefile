@@ -18,7 +18,7 @@ erase: ## stop and delete containers, clean volumes.
 build: ## build environment and initialize composer and project dependencies
 		docker-compose build
 		docker-compose up -d --remove-orphans
-		docker exec -it nettech-php bash -lc 'COMPOSER_MEMORY_LIMIT=-1 composer install'
+		docker exec -it nettech-php bash -lc 'COMPOSER_MEMORY_LIMIT=-1 composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader'
 
 .PHONY: composer-install
 composer-install: ## Install project dependencies
@@ -34,7 +34,7 @@ tests: ## execute project unit tests
 
 .PHONY: style
 style: ## executes php analizers
-		docker-compose run --rm php bash -lc './vendor/bin/phpstan analyse -l 6 -c phpstan.neon src tests'
+		docker-compose run --rm php bash -lc './vendor/bin/phpstan analyse -l 1 -c phpstan.neon src tests'
 
 .PHONY: cs
 cs: ## executes php cs fixer

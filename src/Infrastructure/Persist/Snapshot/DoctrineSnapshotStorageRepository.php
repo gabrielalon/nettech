@@ -19,7 +19,8 @@ final class DoctrineSnapshotStorageRepository extends ServiceEntityRepository im
 
     /**
      * DoctrineSnapshotStorageRepository constructor.
-     * @param Serializer $serializer
+     *
+     * @param Serializer      $serializer
      * @param ManagerRegistry $registry
      */
     public function __construct(
@@ -31,7 +32,7 @@ final class DoctrineSnapshotStorageRepository extends ServiceEntityRepository im
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function save(Snapshot\Snapshot $snapshot): void
     {
@@ -57,7 +58,7 @@ final class DoctrineSnapshotStorageRepository extends ServiceEntityRepository im
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function get(Aggregate\AggregateType $aggregateType, AggregateId $aggregateId): Snapshot\Snapshot
     {

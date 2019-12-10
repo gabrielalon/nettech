@@ -99,7 +99,7 @@ class UserTest extends AggregateChangedTestCase
         return Event\NewUserCreated::occur($this->uuid->toString(), [
             'creation_date' => time(),
             'login' => $this->login->toString(),
-            'password' => $this->password->toString()
+            'password' => $this->password->toString(),
         ]);
     }
 }

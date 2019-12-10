@@ -49,9 +49,10 @@ class User implements UserInterface, Query\Viewable
 
     /**
      * User constructor.
-     * @param string $uuid
-     * @param string $login
-     * @param string $password
+     *
+     * @param string             $uuid
+     * @param string             $login
+     * @param string             $password
      * @param \DateTimeImmutable $createdAt
      */
     public function __construct(
@@ -67,7 +68,7 @@ class User implements UserInterface, Query\Viewable
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getRoles(): array
     {
@@ -75,7 +76,7 @@ class User implements UserInterface, Query\Viewable
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getPassword(): string
     {
@@ -83,7 +84,7 @@ class User implements UserInterface, Query\Viewable
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getSalt(): ?string
     {
@@ -91,7 +92,7 @@ class User implements UserInterface, Query\Viewable
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getUsername(): string
     {
@@ -99,7 +100,7 @@ class User implements UserInterface, Query\Viewable
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function eraseCredentials(): void
     {
@@ -139,7 +140,7 @@ class User implements UserInterface, Query\Viewable
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function identifier()
     {

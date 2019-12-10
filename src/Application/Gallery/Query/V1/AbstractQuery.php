@@ -10,7 +10,7 @@ abstract class AbstractQuery extends \N3ttech\Messaging\Query\Query\Query
     /** @var string */
     private $orderField;
 
-    /** @var integer */
+    /** @var int */
     private $totalCounter;
 
     /**
@@ -19,6 +19,7 @@ abstract class AbstractQuery extends \N3ttech\Messaging\Query\Query\Query
     public function getTotalCounter(): int
     {
         $this->initializeTotalCounter();
+
         return $this->totalCounter;
     }
 

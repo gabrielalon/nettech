@@ -50,7 +50,7 @@ class SnapshotStoreEntity
     private $aggregateObject;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="last_version", type="integer")
      */
@@ -73,11 +73,13 @@ class SnapshotStoreEntity
 
     /**
      * @param int $id
+     *
      * @return SnapshotStoreEntity
      */
     public function setId($id)
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -91,11 +93,13 @@ class SnapshotStoreEntity
 
     /**
      * @param string|int $aggregateId
+     *
      * @return SnapshotStoreEntity
      */
     public function setAggregateId($aggregateId)
     {
         $this->aggregateId = $aggregateId;
+
         return $this;
     }
 
@@ -109,11 +113,13 @@ class SnapshotStoreEntity
 
     /**
      * @param string $aggregateType
+     *
      * @return SnapshotStoreEntity
      */
     public function setAggregateType($aggregateType)
     {
         $this->aggregateType = $aggregateType;
+
         return $this;
     }
 
@@ -127,11 +133,13 @@ class SnapshotStoreEntity
 
     /**
      * @param string $aggregateObject
+     *
      * @return SnapshotStoreEntity
      */
     public function setAggregateObject($aggregateObject)
     {
         $this->aggregateObject = $aggregateObject;
+
         return $this;
     }
 
@@ -145,11 +153,13 @@ class SnapshotStoreEntity
 
     /**
      * @param int $lastVersion
+     *
      * @return SnapshotStoreEntity
      */
     public function setLastVersion($lastVersion)
     {
         $this->lastVersion = $lastVersion;
+
         return $this;
     }
 
@@ -163,11 +173,13 @@ class SnapshotStoreEntity
 
     /**
      * @param \DateTimeImmutable $createdAt
+     *
      * @return SnapshotStoreEntity
      */
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
 }

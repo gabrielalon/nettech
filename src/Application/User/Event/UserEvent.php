@@ -9,6 +9,7 @@ abstract class UserEvent extends AggregateChanged
 {
     /**
      * @return VO\Identity\Uuid
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function userUuid(): VO\Identity\Uuid

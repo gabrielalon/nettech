@@ -53,5 +53,3 @@ abstract class AssetQuery extends AbstractQuery
         }
     }
 }
-
-

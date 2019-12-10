@@ -21,8 +21,9 @@ class FetchGalleryCommand extends Command
 
     /**
      * FetchGalleryCommand constructor.
+     *
      * @param FetcherRegistry $fetcherRegistry
-     * @param GalleryService $galleryService
+     * @param GalleryService  $galleryService
      */
     public function __construct(
         FetcherRegistry $fetcherRegistry,
@@ -34,9 +35,9 @@ class FetchGalleryCommand extends Command
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Fetches gallery.')
@@ -46,9 +47,9 @@ class FetchGalleryCommand extends Command
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln([
             'Gallery Fetcher',
@@ -61,10 +62,10 @@ class FetchGalleryCommand extends Command
         } catch (\Exception $e) {
             $output->writeln([
                 $e->getMessage(),
-                ''
+                '',
             ]);
 
-            return 0;
+            return 1;
         }
 
         foreach ($galleryFetcher->galleries() as $name => $assets) {
@@ -72,19 +73,19 @@ class FetchGalleryCommand extends Command
                 $gallery = $this->galleryService->create($name, $galleryFetcher->name(), $assets);
 
                 $output->writeln([
-                    'Successfully created gallery: ' . $gallery->identifier(),
-                    'Assets count: ' . count($assets),
-                    ''
+                    'Successfully created gallery: '.$gallery->identifier(),
+                    'Assets count: '.count($assets),
+                    '',
                 ]);
-            }
-            catch (\Exception $e) {
+            } catch (\Exception $e) {
                 $output->writeln([
-                    'Gallery not created: ' . $name,
-                    'Assets count: ' . count($assets),
-                    ''
+                    'Gallery not created: '.$name,
+                    'Assets count: '.count($assets),
+                    '',
                 ]);
             }
         }
-        return 1;
+
+        return 0;
     }
 }

@@ -20,21 +20,23 @@ class GalleryController extends AbstractController
      * @Route("source", name="gallery-source")
      *
      * @param FetcherRegistry $fetcherRegistry
+     *
      * @return Response
      */
     public function sources(FetcherRegistry $fetcherRegistry): Response
     {
         return $this->render('gallery/sources.html.twig', [
-            'galleryFetchers' => $fetcherRegistry->getFetchers()
+            'galleryFetchers' => $fetcherRegistry->getFetchers(),
         ]);
     }
 
     /**
      * @Route("list/{source}", name="gallery-list", requirements={"source"=".+"})
      *
-     * @param string $source
-     * @param Request $request
+     * @param string          $source
+     * @param Request         $request
      * @param GallerySearcher $searcher
+     *
      * @return Response
      */
     public function galleries(string $source, Request $request, GallerySearcher $searcher): Response
@@ -51,10 +53,11 @@ class GalleryController extends AbstractController
     /**
      * @Route("assets/{uuid}", name="gallery-assets", requirements={"uuid"=".+"})
      *
-     * @param string $uuid
-     * @param Request $request
+     * @param string              $uuid
+     * @param Request             $request
      * @param GalleryQueryManager $manager
-     * @param AssetSearcher $searcher
+     * @param AssetSearcher       $searcher
+     *
      * @return Response
      */
     public function assets(string $uuid, Request $request, GalleryQueryManager $manager, AssetSearcher $searcher): Response
@@ -69,7 +72,7 @@ class GalleryController extends AbstractController
 
         return $this->render('gallery/assets.html.twig', [
             'gallery' => $gallery,
-            'searcher' => $searcher
+            'searcher' => $searcher,
         ]);
     }
 }

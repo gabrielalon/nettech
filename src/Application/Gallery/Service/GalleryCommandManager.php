@@ -11,7 +11,7 @@ class GalleryCommandManager extends CommandManager
      * @param string $uuid
      * @param string $source
      * @param string $name
-     * @param array $assets
+     * @param array  $assets
      */
     public function create(string $uuid, string $name, string $source, array $assets): void
     {

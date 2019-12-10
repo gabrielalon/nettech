@@ -2,8 +2,8 @@
 
 namespace App\Domain\Model\Gallery\Asset;
 
-use App\Domain\Model\Gallery\Gallery;
 use App\Domain\Model\Gallery\Asset;
+use App\Domain\Model\Gallery\Gallery;
 
 abstract class AssetResolver
 {
@@ -11,6 +11,7 @@ abstract class AssetResolver
 
     /**
      * MediaResolver constructor.
+     *
      * @param AssetResolver|null $resolver
      */
     public function __construct(?AssetResolver $resolver = null)
@@ -25,13 +26,16 @@ abstract class AssetResolver
 
     /**
      * @param string $media
+     *
      * @return Asset
      */
     abstract protected function retrieveAsset(string $media): Asset;
 
     /**
      * @param string $media
+     *
      * @return Asset
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function resolveAsset(string $media): Asset
@@ -49,6 +53,7 @@ abstract class AssetResolver
 
     /**
      * @param string $media
+     *
      * @return bool
      */
     private function isExtensionSupported(string $media): bool
@@ -58,6 +63,7 @@ abstract class AssetResolver
 
     /**
      * @param string $media
+     *
      * @return string
      */
     private function resolveExtension(string $media): string
@@ -65,4 +71,3 @@ abstract class AssetResolver
         return pathinfo($media, PATHINFO_EXTENSION);
     }
 }
-

@@ -9,6 +9,7 @@ class DoctrineGalleryQuery extends DoctrineQuery implements Query\GalleryQuery
 {
     /**
      * DoctrineGalleryQuery constructor.
+     *
      * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
@@ -17,29 +18,29 @@ class DoctrineGalleryQuery extends DoctrineQuery implements Query\GalleryQuery
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function findOneByUuid(Query\V1\FindOneGalleryByUuid $query): void
     {
         if (null !== $gallery = $this->find($query->getUuid())) {
-            /** @var Query\ReadModel\Entity\Gallery $gallery */
+            /* @var Query\ReadModel\Entity\Gallery $gallery */
             $query->addGallery($gallery);
         }
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function findOneByName(Query\V1\FindOneGalleryByName $query): void
     {
         if (null !== $gallery = $this->findOneBy(['name' => $query->getName()])) {
-            /** @var Query\ReadModel\Entity\Gallery $gallery */
+            /* @var Query\ReadModel\Entity\Gallery $gallery */
             $query->addGallery($gallery);
         }
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function listAllBySource(Query\V1\ListAllGalleryBySource $query): void
     {

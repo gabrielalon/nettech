@@ -45,7 +45,9 @@ final class Assets extends \ArrayIterator
 
     /**
      * @param array $data
+     *
      * @return Assets
+     *
      * @throws Assert\AssertionFailedException
      */
     public static function fromArray(array $data): Assets
@@ -76,4 +78,3 @@ final class Assets extends \ArrayIterator
         return $data;
     }
 }
-

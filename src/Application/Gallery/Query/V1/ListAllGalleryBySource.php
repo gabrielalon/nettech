@@ -11,8 +11,9 @@ class ListAllGalleryBySource extends GalleryQuery
 
     /**
      * ListAllGalleryBySource constructor.
-     * @param int $page
-     * @param int $limit
+     *
+     * @param int    $page
+     * @param int    $limit
      * @param string $source
      */
     public function __construct(int $page, int $limit, string $source)

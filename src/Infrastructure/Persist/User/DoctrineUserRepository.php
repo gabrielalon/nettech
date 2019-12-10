@@ -10,6 +10,7 @@ class DoctrineUserRepository extends ServiceEntityRepository
 {
     /**
      * DoctrineUserRepository constructor.
+     *
      * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)

@@ -11,6 +11,7 @@ interface Fetcher
 
     /**
      * @param string $address
+     *
      * @return string
      */
     public function url(string $address = ''): string;

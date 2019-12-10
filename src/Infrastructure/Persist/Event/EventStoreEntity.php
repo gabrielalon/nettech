@@ -68,11 +68,13 @@ class EventStoreEntity
 
     /**
      * @param int $id
+     *
      * @return EventStoreEntity
      */
     public function setId(int $id): EventStoreEntity
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -86,11 +88,13 @@ class EventStoreEntity
 
     /**
      * @param mixed $eventId
+     *
      * @return EventStoreEntity
      */
     public function setEventId($eventId)
     {
         $this->eventId = $eventId;
+
         return $this;
     }
 
@@ -104,11 +108,13 @@ class EventStoreEntity
 
     /**
      * @param mixed $eventName
+     *
      * @return EventStoreEntity
      */
     public function setEventName($eventName)
     {
         $this->eventName = $eventName;
+
         return $this;
     }
 
@@ -122,11 +128,13 @@ class EventStoreEntity
 
     /**
      * @param mixed $version
+     *
      * @return EventStoreEntity
      */
     public function setVersion($version)
     {
         $this->version = $version;
+
         return $this;
     }
 
@@ -140,11 +148,13 @@ class EventStoreEntity
 
     /**
      * @param mixed $payload
+     *
      * @return EventStoreEntity
      */
     public function setPayload($payload)
     {
         $this->payload = $payload;
+
         return $this;
     }
 
@@ -158,11 +168,13 @@ class EventStoreEntity
 
     /**
      * @param mixed $metadata
+     *
      * @return EventStoreEntity
      */
     public function setMetadata($metadata)
     {
         $this->metadata = $metadata;
+
         return $this;
     }
 
@@ -176,11 +188,13 @@ class EventStoreEntity
 
     /**
      * @param mixed $occurredOn
+     *
      * @return EventStoreEntity
      */
     public function setOccurredOn($occurredOn)
     {
         $this->occurredOn = $occurredOn;
+
         return $this;
     }
 }

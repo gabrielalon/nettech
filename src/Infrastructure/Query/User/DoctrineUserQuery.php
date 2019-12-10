@@ -10,6 +10,7 @@ class DoctrineUserQuery extends ServiceEntityRepository implements Query\UserQue
 {
     /**
      * DoctrineGalleryQuery constructor.
+     *
      * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
@@ -18,18 +19,18 @@ class DoctrineUserQuery extends ServiceEntityRepository implements Query\UserQue
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function findOneByLogin(Query\V1\FindOneUserByLogin $query): void
     {
         if (null !== $user = $this->findOneBy(['login' => $query->getLogin()])) {
-            /** @var Query\ReadModel\Entity\User $user */
+            /* @var Query\ReadModel\Entity\User $user */
             $query->addUser($user);
         }
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function findAllUsers(Query\V1\FindAllUsers $query): void
     {

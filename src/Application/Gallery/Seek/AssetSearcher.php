@@ -16,7 +16,7 @@ class AssetSearcher extends FinderSearcher
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected function defaultOrderField(): EnumOrderField
     {
@@ -32,7 +32,7 @@ class AssetSearcher extends FinderSearcher
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected function defaultOrderSort(): Enum\OrderSort
     {

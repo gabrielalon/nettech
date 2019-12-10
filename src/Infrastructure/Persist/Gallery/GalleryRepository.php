@@ -31,12 +31,11 @@ class GalleryRepository extends AggregateRepository
      * @param string $uuid
      *
      * @return AggregateRoot|Gallery
-     * @throws \Assert\AssertionFailedException
      *
+     * @throws \Assert\AssertionFailedException
      */
     public function find(string $uuid): AggregateRoot
     {
         return $this->findAggregateRoot(VO\Identity\Uuid::fromIdentity($uuid));
     }
 }
-

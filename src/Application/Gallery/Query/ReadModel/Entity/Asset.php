@@ -47,7 +47,7 @@ class Asset implements Query\Viewable
     private $filename;
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function identifier()
     {
@@ -64,11 +64,13 @@ class Asset implements Query\Viewable
 
     /**
      * @param int $id
+     *
      * @return Asset
      */
     public function setId(int $id): Asset
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -82,11 +84,13 @@ class Asset implements Query\Viewable
 
     /**
      * @param string $galleryUuid
+     *
      * @return Asset
      */
     public function setGalleryUuid(string $galleryUuid): Asset
     {
         $this->galleryUuid = $galleryUuid;
+
         return $this;
     }
 
@@ -100,11 +104,13 @@ class Asset implements Query\Viewable
 
     /**
      * @param string $type
+     *
      * @return Asset
      */
     public function setType(string $type): Asset
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -118,11 +124,13 @@ class Asset implements Query\Viewable
 
     /**
      * @param string $filename
+     *
      * @return Asset
      */
     public function setFilename(string $filename): Asset
     {
         $this->filename = $filename;
+
         return $this;
     }
 }

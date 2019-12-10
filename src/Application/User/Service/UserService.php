@@ -20,8 +20,9 @@ class UserService
 
     /**
      * UserService constructor.
-     * @param UserQueryManager $query
-     * @param UserCommandManager $command
+     *
+     * @param UserQueryManager           $query
+     * @param UserCommandManager         $command
      * @param IdentityGeneratorInterface $identityGenerator
      */
     public function __construct(
@@ -37,7 +38,9 @@ class UserService
     /**
      * @param string $login
      * @param string $password
+     *
      * @return User
+     *
      * @throws \Exception
      */
     public function createUser(string $login, string $password): User
@@ -62,7 +65,9 @@ class UserService
 
     /**
      * @param string $login
+     *
      * @return User
+     *
      * @throws Exception\ResourceNotFoundException
      */
     public function findUser(string $login): User

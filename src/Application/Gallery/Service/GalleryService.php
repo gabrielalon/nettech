@@ -19,8 +19,9 @@ class GalleryService
 
     /**
      * GalleryService constructor.
-     * @param GalleryQueryManager $query
-     * @param GalleryCommandManager $command
+     *
+     * @param GalleryQueryManager        $query
+     * @param GalleryCommandManager      $command
      * @param IdentityGeneratorInterface $identityGenerator
      */
     public function __construct(
@@ -36,8 +37,10 @@ class GalleryService
     /**
      * @param string $name
      * @param string $source
-     * @param array $assets
+     * @param array  $assets
+     *
      * @return Gallery
+     *
      * @throws \Exception
      */
     public function create(string $name, string $source, array $assets = []): Gallery

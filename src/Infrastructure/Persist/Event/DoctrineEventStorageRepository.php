@@ -18,7 +18,8 @@ final class DoctrineEventStorageRepository extends ServiceEntityRepository imple
 
     /**
      * DoctrineEventStorageRepository constructor.
-     * @param Serializer $serializer
+     *
+     * @param Serializer      $serializer
      * @param ManagerRegistry $registry
      */
     public function __construct(
@@ -30,7 +31,7 @@ final class DoctrineEventStorageRepository extends ServiceEntityRepository imple
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function save(Event $event): void
     {
@@ -52,7 +53,7 @@ final class DoctrineEventStorageRepository extends ServiceEntityRepository imple
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function load(AggregateId $aggregateId, int $lastVersion): Stream\EventStreamCollection
     {

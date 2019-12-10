@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 class Sha1Hasher extends BasePasswordEncoder implements PasswordHasherInterface
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function hash(string $password): string
     {
@@ -65,7 +65,7 @@ class Sha1Hasher extends BasePasswordEncoder implements PasswordHasherInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getEncoderName()
     {

@@ -64,7 +64,7 @@ class GalleryCollection extends \ArrayIterator implements Query\ViewableCollecti
                 'created_at' => $gallery->getCreatedAt(),
                 'source' => $gallery->getSource(),
                 'name' => $gallery->getName(),
-                'asset_counter' => $gallery->assetCounter()
+                'asset_counter' => $gallery->assetCounter(),
             ];
         }
 

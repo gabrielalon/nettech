@@ -10,15 +10,16 @@ class CreateGallery extends GalleryCommand
     /** @var string */
     private $source;
 
-    /** @var string[] */
+    /** @var array<string> */
     private $assets;
 
     /**
      * CreateGallery constructor.
-     * @param string $uuid
-     * @param array $name
-     * @param string $source
-     * @param array $assets
+     *
+     * @param string        $uuid
+     * @param string        $name
+     * @param string        $source
+     * @param array<string> $assets
      */
     public function __construct(
         string $uuid,
@@ -49,7 +50,7 @@ class CreateGallery extends GalleryCommand
     }
 
     /**
-     * @return string[]
+     * @return array<string>
      */
     public function getAssets(): array
     {

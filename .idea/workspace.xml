@@ -2,22 +2,115 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f03125c-36c9-4026-a17c-12d3526e248b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Presentation/Http/Rest/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.php_cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Share/Migrations/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Presentation/Http/Rest/ControllerTestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Presentation/Http/Rest/GalleryControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Presentation/Http/Rest/UserControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Presentation/Http/Web/GalleryControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Presentation/Http/Web/HomeControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Presentation/Http/Web/UserControllerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/.env.test" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/nettech.io.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nettech.io.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.symfony.cloud.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/apache/nettech.io.apache.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/apache/nettech.io.apache.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/test/swiftmailer.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpstan.neon" beforeDir="false" afterPath="$PROJECT_DIR$/phpstan.neon" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Command/CreateGallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Command/CreateGallery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Event/GalleryEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Event/GalleryEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Event/NewGalleryCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Event/NewGalleryCreated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Fetch/AbstractFetcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Fetch/AbstractFetcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Fetch/Fetcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Fetch/Fetcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Fetch/FetcherRegistry.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Fetch/FetcherRegistry.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Fetch/WatchTheDeerFetcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Fetch/WatchTheDeerFetcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/ReadModel/Entity/Asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/ReadModel/Entity/Asset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/ReadModel/Entity/AssetCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/ReadModel/Entity/AssetCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/ReadModel/Entity/Gallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/ReadModel/Entity/Gallery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/ReadModel/Entity/GalleryCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/ReadModel/Entity/GalleryCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/AbstractQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/AbstractQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/AssetQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/AssetQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/FindOneGalleryByName.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/FindOneGalleryByName.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/FindOneGalleryByUuid.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/FindOneGalleryByUuid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/GalleryQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/GalleryQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/ListAllAssetByGallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/ListAllAssetByGallery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/ListAllAssetByGalleryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/ListAllAssetByGalleryHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/ListAllGalleryBySource.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/ListAllGalleryBySource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/QueryListed.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Query/V1/QueryListed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Seek/AssetSearcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Seek/AssetSearcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Seek/Enum/AssetOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Seek/Enum/AssetOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Seek/Enum/GalleryOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Seek/Enum/GalleryOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Seek/Enum/OrderSort.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Seek/Enum/OrderSort.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Seek/FinderSearcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Seek/FinderSearcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Seek/GallerySearcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Seek/GallerySearcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Service/GalleryCommandManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Service/GalleryCommandManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Service/GalleryQueryManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Service/GalleryQueryManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Gallery/Service/GalleryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Gallery/Service/GalleryService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Command/CreateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Command/CreateUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Command/RemoveUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Command/RemoveUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Event/ExistingUserRemoved.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Event/ExistingUserRemoved.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Event/NewUserCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Event/NewUserCreated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Event/UserEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Event/UserEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Query/ReadModel/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Query/ReadModel/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Query/V1/FindAllUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Query/V1/FindAllUsers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Query/V1/FindOneUserByLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Query/V1/FindOneUserByLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Query/V1/UserQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Query/V1/UserQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Service/UserQueryManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Service/UserQueryManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Service/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Service/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Gallery/Asset/AssetResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Gallery/Asset/AssetResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Gallery/Asset/ImageResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Gallery/Asset/ImageResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Gallery/Asset/VideoResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Gallery/Asset/VideoResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Gallery/Gallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Gallery/Gallery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Gallery/Gallery/Assets.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Gallery/Gallery/Assets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Gallery/Gallery/Image.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Gallery/Gallery/Image.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Gallery/Gallery/Video.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Gallery/Gallery/Video.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/User/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Doctrine/DatabaseConnected.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Doctrine/DatabaseConnected.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/IdentityGenerator/Uuid4Generator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/IdentityGenerator/Uuid4Generator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/PasswordHasher/PasswordHasherInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/PasswordHasher/PasswordHasherInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/PasswordHasher/Sha1Hasher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/PasswordHasher/Sha1Hasher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persist/Event/DoctrineEventStorageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persist/Event/DoctrineEventStorageRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persist/Event/EventStoreEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persist/Event/EventStoreEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persist/Gallery/DoctrineAssetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persist/Gallery/DoctrineAssetRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persist/Gallery/DoctrineGalleryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persist/Gallery/DoctrineGalleryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persist/Gallery/GalleryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persist/Gallery/GalleryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persist/Snapshot/DoctrineSnapshotStorageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persist/Snapshot/DoctrineSnapshotStorageRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persist/Snapshot/SnapshotStoreEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persist/Snapshot/SnapshotStoreEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persist/User/DoctrineUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persist/User/DoctrineUserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persist/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persist/User/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Projection/Gallery/DoctrineGalleryProjector.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Projection/Gallery/DoctrineGalleryProjector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Projection/User/DoctrineUserProjector.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Projection/User/DoctrineUserProjector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Query/Gallery/DoctrineAssetQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Query/Gallery/DoctrineAssetQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Query/Gallery/DoctrineGalleryQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Query/Gallery/DoctrineGalleryQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Query/Gallery/DoctrineQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Query/Gallery/DoctrineQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Query/User/DoctrineUserQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Query/User/DoctrineUserQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Twig/GalleryExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Twig/GalleryExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/config/jwt/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Cli/CreateUserCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Cli/CreateUserCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Cli/FetchGalleryCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Cli/FetchGalleryCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Http/Rest/GalleryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Http/Rest/GalleryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Http/Rest/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Http/Rest/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Http/Web/GalleryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Http/Web/GalleryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Http/Web/ReadmeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Http/Web/ReadmeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Http/Web/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Http/Web/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/readme/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/templates/readme/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Application/Gallery/GalleryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Application/Gallery/GalleryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Application/User/Command/CreateUserHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Application/User/Command/CreateUserHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Application/User/Command/RemoveUserHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Application/User/Command/RemoveUserHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Application/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Application/User/UserTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Infrastructure/Projection/Gallery/InMemoryGalleryProjector.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Infrastructure/Projection/Gallery/InMemoryGalleryProjector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Infrastructure/Query/Gallery/InMemoryGalleryQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Infrastructure/Query/Gallery/InMemoryGalleryQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/translations/messages.en.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +248,10 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
       <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/vendor/friendsofphp/php-cs-fixer" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/php-cs-fixer/diff" />
     </include_path>
   </component>
   <component name="ProjectId" id="1UYVMN0cBg6c85P5wh0UcaYumf3" />
@@ -177,25 +274,25 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="php.test.frameworks.configurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/assets" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/tests/Infrastructure/Query" />
-      <recent name="$PROJECT_DIR$/tests/Application" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Infrastructure/Share" />
       <recent name="$PROJECT_DIR$/src/Application/Gallery/Query/Pagination/Enum" />
       <recent name="$PROJECT_DIR$/src/Domain/Model" />
       <recent name="$PROJECT_DIR$/src/Infrastructure/Persist/Snapshot" />
       <recent name="$PROJECT_DIR$/src/Infrastructure/Persist/Event" />
-      <recent name="$PROJECT_DIR$/src/Infrastructure/Persist" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/public/assets" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/tests/Infrastructure/Query" />
+      <recent name="$PROJECT_DIR$/tests/Application" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.CreateGalleryHandlerTest">
@@ -261,7 +358,10 @@
       <workItem from="1575818477824" duration="2143000" />
       <workItem from="1575820634423" duration="18580000" />
       <workItem from="1575884091713" duration="18969000" />
-      <workItem from="1575903146021" duration="7773000" />
+      <workItem from="1575903146021" duration="8843000" />
+      <workItem from="1575930280017" duration="3363000" />
+      <workItem from="1575970951009" duration="2667000" />
+      <workItem from="1575973671901" duration="2668000" />
     </task>
     <servers />
   </component>
@@ -280,6 +380,10 @@
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
     <state x="635" y="159" width="981" height="786" key="#RemoveUserHandlerTest.itRemovesExistingUserTest/61.27.1859.1053@61.27.1859.1053" timestamp="1575622902232" />
+    <state x="712" y="358" width="547" height="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575973729760">
+      <screen x="61" y="27" width="1859" height="1053" />
+    </state>
+    <state x="712" y="358" width="547" height="388" key="#com.intellij.fileTypes.FileTypeChooser/61.27.1859.1053@61.27.1859.1053" timestamp="1575973729760" />
     <state x="770" y="271" width="431" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1575899551253">
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
@@ -288,18 +392,22 @@
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
     <state x="673" y="283" width="624" height="538" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/61.27.1859.1053@61.27.1859.1053" timestamp="1575905143752" />
-    <state x="557" y="27" width="856" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1575892992761">
+    <state x="557" y="27" width="856" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1575972649033">
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
-    <state x="557" y="27" width="856" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/61.27.1859.1053@61.27.1859.1053" timestamp="1575892992761" />
-    <state x="723" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575904990125">
+    <state x="557" y="27" width="856" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/61.27.1859.1053@61.27.1859.1053" timestamp="1575972649033" />
+    <state x="723" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575972622441">
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
-    <state x="723" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/61.27.1859.1053@61.27.1859.1053" timestamp="1575904990125" />
+    <state x="723" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/61.27.1859.1053@61.27.1859.1053" timestamp="1575972622441" />
     <state x="635" y="192" width="714" height="720" key="#public" timestamp="1575540223125">
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
     <state x="635" y="192" width="714" height="720" key="#public/61.27.1859.1053@61.27.1859.1053" timestamp="1575540223125" />
+    <state x="161" y="125" width="1659" height="855" key="DiffContextDialog" timestamp="1575930603173">
+      <screen x="61" y="27" width="1859" height="1053" />
+    </state>
+    <state x="161" y="125" width="1659" height="855" key="DiffContextDialog/61.27.1859.1053@61.27.1859.1053" timestamp="1575930603173" />
     <state x="347" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575901306669">
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
@@ -320,10 +428,10 @@
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
     <state width="1815" height="279" key="GridCell.Tab.0.right/61.27.1859.1053@61.27.1859.1053" timestamp="1575626236515" />
-    <state x="581" y="370" width="893" height="365" key="NewPhpClassDialog" timestamp="1575911729953">
+    <state x="581" y="370" width="893" height="365" key="NewPhpClassDialog" timestamp="1575972546820">
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
-    <state x="581" y="370" width="893" height="365" key="NewPhpClassDialog/61.27.1859.1053@61.27.1859.1053" timestamp="1575911729953" />
+    <state x="581" y="370" width="893" height="365" key="NewPhpClassDialog/61.27.1859.1053@61.27.1859.1053" timestamp="1575972546820" />
     <state x="804" y="479" width="363" height="147" key="NewPhpFileDialog" timestamp="1575906446957">
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
@@ -336,21 +444,21 @@
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
     <state x="161" y="125" width="1659" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog/61.27.1859.1053@61.27.1859.1053" timestamp="1575619803216" />
-    <state x="580" y="264" width="820" height="576" key="find.popup" timestamp="1575911063045">
+    <state x="580" y="264" width="820" height="576" key="find.popup" timestamp="1575973087591">
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
-    <state x="580" y="264" width="820" height="576" key="find.popup/61.27.1859.1053@61.27.1859.1053" timestamp="1575911063045" />
+    <state x="580" y="264" width="820" height="576" key="find.popup/61.27.1859.1053@61.27.1859.1053" timestamp="1575973087591" />
     <state x="654" y="253" key="run.anything.popup" timestamp="1575823670800">
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
     <state x="654" y="253" key="run.anything.popup/61.27.1859.1053@61.27.1859.1053" timestamp="1575823670800" />
-    <state x="653" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1575911722402">
+    <state x="653" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1575976703060">
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
-    <state x="653" y="257" width="672" height="678" key="search.everywhere.popup/61.27.1859.1053@61.27.1859.1053" timestamp="1575911722402" />
-    <state x="715" y="393" width="540" height="319" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1575909310757">
+    <state x="653" y="257" width="672" height="678" key="search.everywhere.popup/61.27.1859.1053@61.27.1859.1053" timestamp="1575976703060" />
+    <state x="715" y="393" width="540" height="319" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1575974031901">
       <screen x="61" y="27" width="1859" height="1053" />
     </state>
-    <state x="715" y="393" width="540" height="319" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/61.27.1859.1053@61.27.1859.1053" timestamp="1575909310757" />
+    <state x="715" y="393" width="540" height="319" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/61.27.1859.1053@61.27.1859.1053" timestamp="1575974031901" />
   </component>
 </project>

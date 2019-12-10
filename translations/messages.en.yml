@@ -1,6 +1,7 @@
 common:
     title: Marek Rode
     description: BoostTypers - recruitment task,
+    nav_home: Home
     nav_user_list: Users
     nav_gallery_source_list: Galleries
     nav_readme: Readme
@@ -20,6 +21,8 @@ user:
     collection_empty: No users found.
     link_remove: remove
 
+asset:
+    empty_list: No assets found.
 gallery:
     source: Source
     source_title: Gallery sources
@@ -28,7 +31,7 @@ gallery:
     link_list: show
 
     gallery_title: Gallery list
-    asset_title: Asset title
+    asset_title: Asset list
     asset: Asset
     creation_date: Created at
     name: Name

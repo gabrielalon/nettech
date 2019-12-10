@@ -10,6 +10,7 @@ class DoctrineAssetRepository extends ServiceEntityRepository
 {
     /**
      * DoctrineAssetRepository constructor.
+     *
      * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)

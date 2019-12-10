@@ -6,7 +6,6 @@ use App\Application\User\Event;
 use App\Domain\Model\User\Projection\UserProjector;
 use App\Infrastructure\Doctrine\DatabaseConnected;
 use App\Infrastructure\PasswordHasher\PasswordHasherInterface;
-use Doctrine\DBAL\ParameterType;
 
 class DoctrineUserProjector extends DatabaseConnected implements UserProjector
 {
@@ -15,6 +14,7 @@ class DoctrineUserProjector extends DatabaseConnected implements UserProjector
 
     /**
      * @required
+     *
      * @param PasswordHasherInterface $passwordHasher
      */
     public function setPasswordHasher(PasswordHasherInterface $passwordHasher)
@@ -23,7 +23,7 @@ class DoctrineUserProjector extends DatabaseConnected implements UserProjector
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function onNewUserCreated(Event\NewUserCreated $event): void
     {
@@ -39,12 +39,12 @@ class DoctrineUserProjector extends DatabaseConnected implements UserProjector
             'uuid' => $event->userUuid()->toString(),
             'login' => $event->userLogin()->toString(),
             'password' => $this->passwordHasher->hash($event->userPassword()->toString()),
-            'created_at' => \DateTimeImmutable::createFromMutable($creationDate)->format('Y-m-d H:i:s')
+            'created_at' => \DateTimeImmutable::createFromMutable($creationDate)->format('Y-m-d H:i:s'),
         ]);
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function onExistingUserRemoved(Event\ExistingUserRemoved $event): void
     {

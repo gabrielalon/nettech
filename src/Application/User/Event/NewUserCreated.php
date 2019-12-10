@@ -10,6 +10,7 @@ class NewUserCreated extends UserEvent
 {
     /**
      * @return VO\Date\Time
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function userCreationDate(): VO\Date\Time
@@ -19,6 +20,7 @@ class NewUserCreated extends UserEvent
 
     /**
      * @return VO\Char\Text
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function userLogin(): VO\Char\Text
@@ -28,6 +30,7 @@ class NewUserCreated extends UserEvent
 
     /**
      * @return VO\Char\Text
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function userPassword(): VO\Char\Text
@@ -37,6 +40,7 @@ class NewUserCreated extends UserEvent
 
     /**
      * @param User $user
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function populate(AggregateRoot $user): void

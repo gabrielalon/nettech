@@ -10,6 +10,7 @@ class DoctrineGalleryRepository extends ServiceEntityRepository
 {
     /**
      * DoctrineGalleryRepository constructor.
+     *
      * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)

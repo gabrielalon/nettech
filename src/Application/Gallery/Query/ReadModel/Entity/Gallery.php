@@ -49,12 +49,12 @@ class Gallery implements Query\Viewable
     private $created_at;
 
     /**
-     * @var integer
+     * @var int
      */
     private $asset_counter;
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function identifier()
     {

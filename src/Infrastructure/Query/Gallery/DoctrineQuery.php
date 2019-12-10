@@ -19,6 +19,7 @@ abstract class DoctrineQuery extends ServiceEntityRepository
 
     /**
      * @return int
+     *
      * @throws \Doctrine\DBAL\DBALException
      */
     protected function calculateTotalRows(): int

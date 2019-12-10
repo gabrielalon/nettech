@@ -19,7 +19,9 @@ class FetcherRegistry
 
     /**
      * @param string $name
+     *
      * @return Fetcher
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function get(string $name): Fetcher

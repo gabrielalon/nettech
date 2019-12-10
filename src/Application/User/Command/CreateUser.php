@@ -12,6 +12,7 @@ class CreateUser extends UserCommand
 
     /**
      * CreateUser constructor.
+     *
      * @param string $uuid
      * @param string $login
      * @param string $password

@@ -21,9 +21,10 @@ class GalleryController extends AbstractController
     /**
      * @Route("list/{source}", name="api-gallery-list", requirements={"source"=".+"}, methods={"GET"})
      *
-     * @param string $source
-     * @param Request $request
+     * @param string          $source
+     * @param Request         $request
      * @param GallerySearcher $searcher
+     *
      * @return JsonResponse
      */
     public function galleries(string $source, Request $request, GallerySearcher $searcher): JsonResponse
@@ -46,10 +47,11 @@ class GalleryController extends AbstractController
     /**
      * @Route("assets/{uuid}", name="api-gallery-assets", requirements={"uuid"=".+"}, methods={"GET"})
      *
-     * @param string $uuid
-     * @param Request $request
+     * @param string              $uuid
+     * @param Request             $request
      * @param GalleryQueryManager $manager
-     * @param AssetSearcher $searcher
+     * @param AssetSearcher       $searcher
+     *
      * @return Response
      */
     public function assets(string $uuid, Request $request, GalleryQueryManager $manager, AssetSearcher $searcher): Response

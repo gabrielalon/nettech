@@ -31,8 +31,8 @@ class UserRepository extends AggregateRepository
      * @param string $uuid
      *
      * @return AggregateRoot|User
-     * @throws \Assert\AssertionFailedException
      *
+     * @throws \Assert\AssertionFailedException
      */
     public function find(string $uuid): AggregateRoot
     {
